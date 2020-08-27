@@ -1,15 +1,40 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Leon Lit`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Leon Lit`,
+      summary: `I'm Creating some fun side project.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `A blog for testing Gatsby.`,
+    siteUrl: `https://github.com/Leonlit`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `leonlit`,
+      github: `Leonlit`
     },
+    menuLinks : [
+      {
+        name: "Home",
+        link: "/"
+      },
+      {
+        name: "Blog Post",
+        link: "/blog"
+      },
+      {
+        name: "Portfolio",
+        link: "/portfolio"
+      },
+      {
+        name: "About Me",
+        link: "/about"
+      },
+    ],
+    sideMenu:[
+      {
+        name: "Portolio",
+        link: "/portfolio" 
+      }
+    ],
   },
   plugins: [
     {

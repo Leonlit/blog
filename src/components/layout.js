@@ -2,10 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+import {siteMetadata} from "../../gatsby-config"
+import "./layout.css"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
+  const pages = siteMetadata.menuLinks;
   let header
+
+  console.log(pages);
 
   if (location.pathname === rootPath) {
     header = (
@@ -29,7 +34,7 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <h3
+      <h2
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
@@ -44,22 +49,33 @@ const Layout = ({ location, title, children }) => {
         >
           {title}
         </Link>
-      </h3>
+      </h2>
     )
   }
   return (
     <div
       style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
+        marginLeft: `5%`,
+        maxWidth: "100%",
         padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       }}
     >
       <header>{header}</header>
-      <main>{children}</main>
+      <nav>
+        {pages.map(({name, link}) => {
+          return (
+            <a href={`${link}`}>{name}</a>
+          )
+        })}
+      </nav>
+      <hr/>
+      <div id="container">
+        <main>{children}</main>
+        <aside>test</aside>
+      </div>
+
       <footer>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()} {siteMetadata.author.name}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
