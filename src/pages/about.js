@@ -14,12 +14,12 @@ const BlogAbout = ({ data, location }) => {
       <SEO title="About Me" />
         <h2>About Me</h2>
           <p>
-              I'm a selft taught developer. I'm currently a Computer Science student majoring in Network Security in a local university in my country.
-               I've built some side projects like weather web apps, web RSS Reader, android app for converting currency
-              and many more. Feel free to view my github profile <a target="_blank" href={`https://github.com/${siteMetadata.social.github}`}>here</a>. 
+          I'm a self-taught developer. I'm currently a Computer Science student majoring in Network Security in a local university in my country.
+           I've built some side projects like weather web apps, web RSS Reader, android app for converting currency and many more. Feel free to view my
+           GitHub profile <a target="_blank" href={`https://github.com/${siteMetadata.social.github}`}>here</a>. 
               <br/><br/>
-              I normally will work on my side projects when I have some free time. It's quite fun to just goofing around and 
-              create something using different kind of technology
+              I usually will work on my side projects when I have some free time. It's quite fun to goof around and create something using a different
+               kind of technology.
           </p>
     </Layout>
   )

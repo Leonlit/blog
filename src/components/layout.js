@@ -20,7 +20,8 @@ const Layout = ({ location, title, children }) => {
           marginBottom: rhythm(1.5),
           marginTop: 0,
         }}
-      >
+          id="title"
+          >
         <Link
           style={{
             boxShadow: `none`,
@@ -39,6 +40,7 @@ const Layout = ({ location, title, children }) => {
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
         }}
+        id="title"
       >
         <Link
           style={{
@@ -64,14 +66,19 @@ const Layout = ({ location, title, children }) => {
       <nav>
         {pages.map(({name, link}) => {
           return (
-            <a href={`${link}`}>{name}</a>
+            <Link to={link}>
+                  {name}
+            </Link>
           )
         })}
       </nav>
       <hr/>
       <div id="container">
         <main>{children}</main>
-        <aside>test</aside>
+        <aside>
+          <h4>Top Post</h4>
+          <hr/>
+        </aside>
       </div>
 
       <footer>
@@ -80,6 +87,7 @@ const Layout = ({ location, title, children }) => {
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
     </div>
+    
   )
 }
 

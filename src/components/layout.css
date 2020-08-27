@@ -1,11 +1,26 @@
-main {
-    margin-left:5%;
-    width: 65%;
+#title {
+    display: inline-block;
+    padding-left : 5px ;
+    border-left:5px solid transparent;
+    transition: 0.3s;
+}
+
+#title:hover {
+    border-left:5px solid black;
+}
+
+#container {
+    width:100%;
+}
+
+#container, main, aside {
     float:left;
 }
 
-main, aside {
-    float:left;
+main {
+    margin-left:5%;
+    width: 65%;
+    min-width: 65%;
 }
 
 aside {
@@ -16,9 +31,12 @@ aside {
     margin-left:5%;
 }
 
+aside h4 {
+    margin-top:0;
+}
+
 nav {
-    margin-top: 3%;
-    margin-bottom:2%; 
+    margin-bottom:1%; 
 }
 
 nav a {
@@ -33,20 +51,11 @@ nav a:hover  {
     box-shadow: 0 1px 0 0 currentColor;
 }
 
-h1:hover, h2:hover {
-    border-left:5px solid black;
-}
-
-h1, h2 {
-    padding-left : 5px ;
-    border-left:5px solid transparent;
-    transition: 0.3s;
-}
-
 p {
     text-align: justify ;
 }
 
 footer {
     margin-top:5%;
+    text-align: center;
 }
