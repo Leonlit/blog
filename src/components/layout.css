@@ -23,9 +23,9 @@ hr {
 }
 
 main {
-    margin-left:5%;
-    width: 65%;
-    min-width: 65%;
+    margin-left:10%;
+    width: 60%;
+    min-width: 60%;
 }
 
 aside {
@@ -39,6 +39,10 @@ aside {
 
 aside h4 {
     margin-top:0;
+}
+
+main ul {
+    margin-left:5%;
 }
 
 nav {
