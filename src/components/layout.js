@@ -4,13 +4,12 @@ import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import {siteMetadata} from "../../gatsby-config"
 import "./layout.css"
+import RecentPost from "./recentPost"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const pages = siteMetadata.menuLinks;
-  let header
-
-  console.log(pages);
+  let header;
 
   if (location.pathname === rootPath) {
     header = (
@@ -76,8 +75,9 @@ const Layout = ({ location, title, children }) => {
       <div id="container">
         <main>{children}</main>
         <aside>
-          <h4>Top Post</h4>
+          <h4>Recent Post</h4>
           <hr/>
+          <RecentPost/>
         </aside>
       </div>
 
