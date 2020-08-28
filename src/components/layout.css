@@ -11,10 +11,15 @@
 
 #container {
     width:100%;
+    margin-bottom:5%;
 }
 
 #container, main, aside {
     float:left;
+}
+
+hr {
+    height:2px;
 }
 
 main {
@@ -29,6 +34,7 @@ aside {
     padding: 40px;
     background-color:#E5E5E5;
     margin-left:5%;
+    border-radius:5px;
 }
 
 aside h4 {

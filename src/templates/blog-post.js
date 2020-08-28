@@ -1,10 +1,12 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql } from "gatsby";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import ShareToMedia from "../components/socialMedia";
+import SEO from "../components/seo";
+import { rhythm, scale } from "../utils/typography";
+import {ShareBlockStandard} from "react-custom-share";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -47,6 +49,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
+      <ShareBlockStandard {...ShareToMedia} />
         <footer>
           <Bio />
         </footer>

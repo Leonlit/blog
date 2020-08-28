@@ -75,7 +75,7 @@ const Layout = ({ location, title, children }) => {
       <div id="container">
         <main>{children}</main>
         <aside>
-          <h4>Recent Post</h4>
+          <h4 style={{marginBottom: "10px",}}>Recent Post</h4>
           <hr/>
           <RecentPost/>
         </aside>

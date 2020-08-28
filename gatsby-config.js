@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Leon Lit`,
+    title: `A Somewhat Minimal Blog Design`,
     author: {
       name: `Leon Lit`,
       summary: `I'm Creating some fun side project.`,
@@ -8,17 +8,14 @@ module.exports = {
     description: `A blog for testing Gatsby.`,
     siteUrl: `https://github.com/Leonlit`,
     social: {
-      twitter: `leonlit`,
-      github: `Leonlit`
+      twitter: `https://twitter.com/leonlit`,
+      github: `https://github.com/Leonlit`,
+      linkedIn: `https://www.linkedin.com/in/leon-lit-152480142/`,
     },
     menuLinks : [
       {
         name: "Home",
         link: "/"
-      },
-      {
-        name: "Blog Post",
-        link: "/blog"
       },
       {
         name: "Portfolio",
@@ -28,12 +25,6 @@ module.exports = {
         name: "About Me",
         link: "/about"
       },
-    ],
-    sideMenu:[
-      {
-        name: "Portolio",
-        link: "/portfolio" 
-      }
     ],
   },
   plugins: [
