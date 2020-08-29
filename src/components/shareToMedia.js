@@ -3,8 +3,6 @@ import {IconContext} from "react-icons"
 import React from "react"
 import PropTypes from "prop-types"
 
-//const icon_url = [<FaTwitter/>, <FaReddit/>, <FaFacebook/>, <FaLinkedin/>]
-
 const ShareToMedia = ({url, title, description}) => {
     const media_endpoint = [
         `https://twitter.com/intent/tweet?text=${title} ${url}`,
