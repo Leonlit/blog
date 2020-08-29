@@ -19,7 +19,9 @@ const SEO = ({ description, lang, meta, title }) => {
             title
             description
             social {
-              twitter
+              twitter {
+                name
+              }
             }
           }
         }
@@ -59,7 +61,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
+          content: site.siteMetadata.social.twitter.name,
         },
         {
           name: `twitter:title`,
@@ -77,7 +79,7 @@ const SEO = ({ description, lang, meta, title }) => {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: `A simple static site for experimenting`,
+  description: `A Somewhat minimally designed blog template`,
 }
 
 SEO.propTypes = {

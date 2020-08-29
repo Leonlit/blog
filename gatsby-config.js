@@ -8,9 +8,18 @@ module.exports = {
     description: `A blog for testing Gatsby.`,
     siteUrl: `https://github.com/Leonlit`,
     social: {
-      twitter: `https://twitter.com/leonlit`,
-      github: `https://github.com/Leonlit`,
-      linkedIn: `https://www.linkedin.com/in/leon-lit-152480142/`,
+      twitter: {
+        url: `https://twitter.com/leonlit`,
+        name: `leonlit`
+      },
+      github: {
+        url: `https://github.com/Leonlit`,
+        name: `Leonlit`
+      },
+      linkedIn: {
+        url: `https://www.linkedin.com/in/leon-lit-152480142/`,
+        name: "leon-lit"
+      },
     },
     menuLinks : [
       {

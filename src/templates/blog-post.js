@@ -4,38 +4,22 @@ import { Link, graphql } from "gatsby";
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import ShareToMedia from "../components/shareToMedia";
 import { rhythm, scale } from "../utils/typography";
-import {} from "react-custom-share";
-import {FaTwitter, FaReddit, FaFacebook, FaGooglePlus,
-  FaEnvelope, FaLinkedin} from "react-icons/fa";
-import {ShareButtonRectangle, ShareBlockStandard} from "react-custom-share";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const postTitle = post.frontmatter.title;
+  const postDescription = post.frontmatter.description;
   const { previous, next } = pageContext
   const postUrl = location.href;
-
-  const ShareToMedia = {
-    url: postUrl,
-    button: ShareButtonRectangle,
-    buttons: [
-      { network: "Twitter", icon: FaTwitter },
-      { network: `Reddit`, icon: FaReddit },
-      { network: "Facebook", icon: FaFacebook },
-      { network: "GooglePlus", icon: FaGooglePlus },
-      { network: "Email", icon: FaEnvelope },
-    ],
-    text: `${post.frontmatter.description} `,
-    longtext: `Take a look at this super website I have just found.`
-  };
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={postTitle}
-        description={post.frontmatter.description || post.excerpt}
+        description={ postDescription || post.excerpt}
       />
       <article>
         <header style={{
@@ -66,7 +50,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-      <ShareBlockStandard {...ShareToMedia} />
+      <ShareToMedia 
+      url = {postUrl}
+      title = {siteTitle}
+      description = {postDescription || post.excerpt}
+      />
         <footer>
           <Bio />
         </footer>

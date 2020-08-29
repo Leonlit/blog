@@ -9,7 +9,7 @@ import RecentPost from "./recentPost"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const pages = siteMetadata.menuLinks;
-  let header;
+  let header, counter = 0;
 
   if (location.pathname === rootPath) {
     header = (
@@ -65,7 +65,7 @@ const Layout = ({ location, title, children }) => {
       <nav>
         {pages.map(({name, link}) => {
           return (
-            <Link to={link}>
+            <Link key={counter++} to={link}>
                   {name}
             </Link>
           )

@@ -65,6 +65,16 @@ p {
     text-align: justify ;
 }
 
+.socialMedias{
+    box-shadow: none;
+    border:2px solid transparent;
+    margin-left:1%;
+}
+
+.socialMedias:hover {
+    border:2px solid black;
+}
+
 footer {
     margin-top:5%;
     text-align: center;
