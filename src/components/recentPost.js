@@ -36,10 +36,9 @@ const RecentPost = () => {
             const {frontmatter: contents} = post;
             return (
                 <div style={{
-                    marginBottom: "10px",
+                    marginBottom: "15px",
                 }}>
                     <Link 
-                    className="linksLabel"
                     style={{
                         padding: "5px",
                         borderRadius: "5px",
@@ -48,9 +47,7 @@ const RecentPost = () => {
                     activeStyle={{ backgroundColor: "#bfbfbf" }}
                     partiallyActive={true}
                     to={post.fields.slug}
-                    >
-                        {contents.title}
-                    </Link>
+                    >{contents.title}</Link>
                 </div>
             )
         })}

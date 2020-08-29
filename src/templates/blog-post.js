@@ -13,6 +13,7 @@ import {ShareButtonRectangle, ShareBlockStandard} from "react-custom-share";
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
+  const postTitle = post.frontmatter.title;
   const { previous, next } = pageContext
   const postUrl = location.href;
 
@@ -21,11 +22,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     button: ShareButtonRectangle,
     buttons: [
       { network: "Twitter", icon: FaTwitter },
-      { network: "Reddit", icon: FaReddit },
+      { network: `Reddit`, icon: FaReddit },
       { network: "Facebook", icon: FaFacebook },
       { network: "GooglePlus", icon: FaGooglePlus },
       { network: "Email", icon: FaEnvelope },
-      { network: "Linkedin", icon: FaLinkedin }
     ],
     text: `${post.frontmatter.description} `,
     longtext: `Take a look at this super website I have just found.`
@@ -34,25 +34,24 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
+        title={postTitle}
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
         <header style={{
           marginBottom: "5%",
         }}>
-          <h1
+          <h2
             style={{
               marginTop: rhythm(1),
               marginBottom: 0,
             }}
           >
-            {post.frontmatter.title}
-          </h1>
+            {postTitle}
+          </h2>
           <p
             style={{
-              ...scale(-1 / 3),
-              fontWeight: "900",
+              ...scale(-1 / 9),
               display: `block`,
               marginTop: "10px",
               marginBottom: rhythm(1),
