@@ -8,18 +8,18 @@ import ShareToMedia from "../components/shareToMedia";
 import { rhythm, scale } from "../utils/typography";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const postTitle = post.frontmatter.title;
-  const postDescription = post.frontmatter.description;
+  const {title, description, date, thumbnail} = frontmatter;
   const { previous, next } = pageContext
   const postUrl = location.href;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={postTitle}
-        description={ postDescription || post.excerpt}
+        title={title}
+        description={ description || excerpt}
+        url={postUrl}
       />
       <article>
         <header style={{
@@ -29,9 +29,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             style={{
               marginTop: rhythm(1),
               marginBottom: 0,
+              backgroundImage: `url("${thumbnail}")`,
             }}
           >
-            {postTitle}
+            {title}
           </h2>
           <p
             style={{
@@ -41,10 +42,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: rhythm(1),
             }}
           >
-            {post.frontmatter.date}
+            {date}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -52,8 +53,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
       <ShareToMedia 
       url = {postUrl}
-      title = {siteTitle}
-      description = {postDescription || post.excerpt}
+      title = {title}
+      description = {description || excerpt}
       />
         <footer>
           <Bio />
@@ -107,6 +108,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail
       }
     }
   }

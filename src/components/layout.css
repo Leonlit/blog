@@ -67,12 +67,16 @@ p {
 
 .socialMedias{
     box-shadow: none;
-    border:2px solid transparent;
     margin-left:1%;
+    padding-bottom: 10px;
+    transition:0.3s;
+    transform: scale(10);
 }
 
 .socialMedias:hover {
-    border:2px solid black;
+    position: relative;
+    transform: scale(1.5);
+    background-image: radial-gradient(rgb(168, 168, 168) 5%, white 90%);
 }
 
 footer {
