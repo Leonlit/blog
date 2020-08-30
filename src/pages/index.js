@@ -33,7 +33,7 @@ const Index = ({ location }) => {
                 postType
                 thumbnail {
                   childImageSharp {
-                    fluid(maxWidth: 1140, maxHeight: 1140) {
+                    fluid(maxWidth: 1140, maxHeight: 600) {
                       ...GatsbyImageSharpFluid
                     }
                   }
@@ -52,37 +52,38 @@ const Index = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      
-      {posts.map(({ node }) => {
-        const slug = node.fields.slug;
-        const title = node.frontmatter.title || slug
-        return (
-          <article className="project-card" key={slug}>
-            <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-            <header className="project-header">
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small style={{
-                fontWeight: "900",
-              }}>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+      <div className="">
+        {posts.map(({ node }) => {
+          const slug = node.fields.slug;
+          const title = node.frontmatter.title || slug
+          return (
+            <article className="card blog-card" key={slug}>
+              <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
+              <header>
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 4),
+                  }}
+                >
+                  <Link style={{ boxShadow: `none` }} to={slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small style={{
+                  fontWeight: "900",
+                }}>{node.frontmatter.date}</small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+              </section>
+            </article>
+          )
+        })}
+      </div>
     </Layout>
   )
 }

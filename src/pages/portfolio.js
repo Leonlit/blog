@@ -52,37 +52,38 @@ const Portfollio = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Portfolio" />
-      {posts.map(({ node }) => {
-        const slug = node.fields.slug
-        const title = node.frontmatter.title || 
-        console.log("test"+node.frontmatter.thumbnail);
-        return (
-          <div className="project-card" key={slug}>
-            <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-            <header className="project-header">
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small style={{
-                fontWeight: "900",
-              }}>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </div>
-        )
-      })}
+      <div className="flex">
+        {posts.map(({ node }) => {
+          const slug = node.fields.slug
+          const title = node.frontmatter.title || slug;
+          return (
+            <div className="card project-card" key={slug}>
+              <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
+              <header>
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 4),
+                  }}
+                >
+                  <Link style={{ boxShadow: `none` }} to={slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small style={{
+                  fontWeight: "900",
+                }}>{node.frontmatter.date}</small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+              </section>
+            </div>
+          )
+        })}
+      </div>
     </Layout>
   )
 }
