@@ -4,6 +4,7 @@ import { Link, graphql, useStaticQuery} from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 const Portfollio = ({ location }) => {
   const portfolioQuery = useStaticQuery(
@@ -14,22 +15,27 @@ const Portfollio = ({ location }) => {
             title
           }
         }
-        allFile(
-          filter: {internal: {mediaType: {eq: "text/markdown"}}, sourceInstanceName: {eq: "portfolio"}},
-          sort: { fields: [childMarkdownRemark___frontmatter___date], order: DESC }
+        allMarkdownRemark(
+          filter: {frontmatter: {postType: {eq: "project"}}},
+          sort: { fields: [frontmatter___date], order: DESC }
         ) {
           edges {
             node {
-              childMarkdownRemark {
-                excerpt
-                fields {
-                  slug
-                }
-                frontmatter {
-                  date(formatString: "MMMM DD, YYYY")
-                  title
-                  description
-                  thumbnail
+              excerpt
+              fields {
+                slug
+              }
+              frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                title
+                description
+                postType
+                thumbnail {
+                  childImageSharp {
+                    fluid(maxWidth: 1140, maxHeight: 1140) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
             }
@@ -41,22 +47,19 @@ const Portfollio = ({ location }) => {
 
   console.log(portfolioQuery);
   const siteTitle = portfolioQuery.site.siteMetadata.title;
-  const posts = portfolioQuery.allFile.edges;
+  const posts = portfolioQuery.allMarkdownRemark.edges;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Portfolio" />
       {posts.map(({ node }) => {
-        node = node.childMarkdownRemark;
         const slug = node.fields.slug
         const title = node.frontmatter.title || 
-        console.log(slug);
-        console.log(`url("${node.frontmatter.thumbnail}")`);
+        console.log("test"+node.frontmatter.thumbnail);
         return (
-          <div key={slug}>
-            <header style={{
-              backgroundImage: `url("${node.frontmatter.thumbnail}")`,
-            }}>
+          <div className="project-card" key={slug}>
+            <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
+            <header className="project-header">
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),

@@ -4,6 +4,7 @@ import { Link, graphql, useStaticQuery} from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import Img from "gatsby-image"
 
 const Index = ({ location }) => {
 
@@ -15,21 +16,27 @@ const Index = ({ location }) => {
             title
           }
         }
-        allFile(
-          filter: {internal: {mediaType: {eq: "text/markdown"}}, sourceInstanceName: {eq: "blog"}},
-          sort: { fields: [childMarkdownRemark___frontmatter___date], order: DESC }
+        allMarkdownRemark(
+          filter: {frontmatter: {postType: {eq: "blog"}}},
+          sort: { fields: [frontmatter___date], order: DESC }
         ) {
           edges {
             node {
-              childMarkdownRemark {
-                excerpt
-                fields {
-                  slug
-                }
-                frontmatter {
-                  date(formatString: "MMMM DD, YYYY")
-                  title
-                  description
+              excerpt
+              fields {
+                slug
+              }
+              frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                title
+                description
+                postType
+                thumbnail {
+                  childImageSharp {
+                    fluid(maxWidth: 1140, maxHeight: 1140) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
             }
@@ -40,24 +47,25 @@ const Index = ({ location }) => {
   )
 
   const siteTitle = blogQuery.site.siteMetadata.title
-  const posts = blogQuery.allFile.edges
+  const posts = blogQuery.allMarkdownRemark.edges
     
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
       
       {posts.map(({ node }) => {
-        node = node.childMarkdownRemark;
-        const title = node.frontmatter.title || node.fields.slug
+        const slug = node.fields.slug;
+        const title = node.frontmatter.title || slug
         return (
-          <article key={node.fields.slug}>
-            <header>
+          <article className="project-card" key={slug}>
+            <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
+            <header className="project-header">
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link style={{ boxShadow: `none` }} to={slug}>
                   {title}
                 </Link>
               </h3>

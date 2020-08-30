@@ -2,7 +2,8 @@
 title: "The feature for the \"A somewhat minimally designed blog\" template Test"
 date: "2015-05-28T22:40:32.169Z"
 description: A simple sample blog post on the feature of the "A somewhat minimally designed blog" template
-thumbnail: ./leon.png
+postType: "project"
+thumbnail: "./leon.png"
 ---
 
 ### Feature for this template (WIP)

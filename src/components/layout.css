@@ -9,6 +9,22 @@
     border-left:5px solid black;
 }
 
+nav {
+    margin-bottom:1%; 
+}
+
+nav a {
+    margin-left:2%;
+    box-shadow: none;
+    transition:0.3s;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+nav a:hover  {
+    box-shadow: 0 1px 0 0 currentColor;
+}
+
 #container {
     width:100%;
     margin-bottom:5%;
@@ -45,22 +61,6 @@ main ul {
     margin-left:5%;
 }
 
-nav {
-    margin-bottom:1%; 
-}
-
-nav a {
-    margin-left:2%;
-    box-shadow: none;
-    transition:0.3s;
-    font-weight: 900;
-    font-size: 18px;
-}
-
-nav a:hover  {
-    box-shadow: 0 1px 0 0 currentColor;
-}
-
 p {
     text-align: justify ;
 }
@@ -78,6 +78,18 @@ p {
     transform: scale(1.5);
     background-image: radial-gradient(rgb(168, 168, 168) 5%, white 90%);
 }
+
+.headerImg {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.project-card {
+    border:1px solid grey;
+    padding: 5%;
+    margin-bottom:20px;
+}
+
 
 footer {
     margin-top:5%;
