@@ -28,7 +28,6 @@ const Portfollio = ({ location }) => {
               frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 title
-                path
                 description
                 postType
                 website

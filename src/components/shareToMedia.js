@@ -20,11 +20,11 @@ const ShareToMedia = ({url, title, description}) => {
             color: "#4267B2",
             logo: <FaFacebook />,
         },
-        {
+        /* {
             link: `https://www.linkedin.com/shareArticle?mini=true&url=${url.slice(0, url.length-1)}&title=${title}&summary=${description}&source=A_Somewhat_Minimally_Designed_Blog`,
             color: "#2867B2",
             logo: <FaLinkedin />,
-        }
+        } */
     ]
     let counter = 0;
   return (
