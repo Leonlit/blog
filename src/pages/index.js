@@ -52,14 +52,16 @@ const Index = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      <div className="">
+      <div>
         {posts.map(({ node }) => {
           const slug = node.fields.slug;
           const title = node.frontmatter.title || slug
           return (
             <article className="card blog-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-              <header>
+              <header style={{
+                marginBottom: "20px"
+              }}>
                 <h3
                   style={{
                     marginBottom: rhythm(1 / 4),

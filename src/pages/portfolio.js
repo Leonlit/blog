@@ -61,10 +61,12 @@ const Portfollio = ({ location }) => {
           return (
             <div className="card project-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-              <header>
+              <header style={{
+                marginBottom: "20px", 
+              }}>
                 <h3
                   style={{
-                    marginBottom: rhythm(1 / 4),
+                    marginBottom: rhythm(2 / 4),
                   }}
                 >
                   <Link style={{ boxShadow: `none` }} to={`../portfolio${slug}/.`}>
@@ -74,7 +76,9 @@ const Portfollio = ({ location }) => {
                 <small style={{
                   fontWeight: "900",
                 }}>{date}</small>
-              <div>Website: <a href={`https://${website[1]}`} target="_blank" rel="noreferrer">{website[0]}</a></div>
+                <div>
+                  Website: <a href={`https://${website[1]}`} target="_blank" rel="noreferrer">{website[0]}</a>
+                </div>
               </header>
               <section>
                 <p
