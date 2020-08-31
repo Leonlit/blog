@@ -9,7 +9,7 @@ import Img from "gatsby-image"
 const Portfollio = ({ location }) => {
   const portfolioQuery = useStaticQuery(
     graphql`
-      query {
+      query portfolio{
         site {
           siteMetadata {
             title
@@ -28,8 +28,10 @@ const Portfollio = ({ location }) => {
               frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 title
+                path
                 description
                 postType
+                website
                 thumbnail {
                   childImageSharp {
                     fluid(maxWidth: 1140, maxHeight: 1140) {
@@ -45,7 +47,6 @@ const Portfollio = ({ location }) => {
     `
   )
 
-  console.log(portfolioQuery);
   const siteTitle = portfolioQuery.site.siteMetadata.title;
   const posts = portfolioQuery.allMarkdownRemark.edges;
 
@@ -56,6 +57,7 @@ const Portfollio = ({ location }) => {
         {posts.map(({ node }) => {
           const slug = node.fields.slug
           const title = node.frontmatter.title || slug;
+          const {date, description, website} = node.frontmatter;
           return (
             <div className="card project-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
@@ -65,18 +67,19 @@ const Portfollio = ({ location }) => {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={slug}>
+                  <Link style={{ boxShadow: `none` }} to={`../portfolio${slug}/.`}>
                     {title}
                   </Link>
                 </h3>
                 <small style={{
                   fontWeight: "900",
-                }}>{node.frontmatter.date}</small>
+                }}>{date}</small>
+              <div>Website: <a href={`https://${website[1]}`} target="_blank" rel="noreferrer">{website[0]}</a></div>
               </header>
               <section>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
+                    __html: description || node.excerpt,
                   }}
                 />
               </section>

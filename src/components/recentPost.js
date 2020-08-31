@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, Link } from "gatsby"
+import { useStaticQuery, Link, graphql} from "gatsby"
 
 const RecentPost = () => {
     const data = useStaticQuery(graphql`
@@ -12,6 +12,7 @@ const RecentPost = () => {
                     }
                     frontmatter {
                         title
+                        postType
                     }
                 }
             }
@@ -27,6 +28,10 @@ const RecentPost = () => {
     <div>
         {edges.map( ({node: post}) => {
             const {frontmatter: contents} = post;
+            let folder = "blog";
+            if (contents.postType === "project") {
+                folder = "portfolio"
+            }
             return (
                 <Link key={counter++} 
                 style={{
@@ -37,7 +42,7 @@ const RecentPost = () => {
                 }}
                 activeStyle={{ backgroundColor: "#bfbfbf" }}
                 partiallyActive={true}
-                to={post.fields.slug}
+                to={`/${folder}${post.fields.slug}`}
                 >{contents.title}</Link>
             )
         })}

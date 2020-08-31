@@ -10,7 +10,7 @@ const Index = ({ location }) => {
 
   const blogQuery = useStaticQuery(
     graphql`
-      query {
+      query index{
         site {
           siteMetadata {
             title
@@ -65,7 +65,7 @@ const Index = ({ location }) => {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={slug}>
+                  <Link style={{ boxShadow: `none` }} to={`../blog${slug}/.`}>
                     {title}
                   </Link>
                 </h3>

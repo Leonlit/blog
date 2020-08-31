@@ -5,7 +5,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const result = await graphql(
+  const projectPost = path.resolve(`./src/templates/project-post.js`)
+  const blog = await graphql(
     `
       {
         allMarkdownRemark(
@@ -19,6 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                postType
               }
             }
           }
@@ -27,20 +29,25 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  if (result.errors) {
-    throw result.errors
+  if (blog.errors) {
+    throw blog.errors
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = blog.data.allMarkdownRemark.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
-
+    let comType = blogPost;
+    let folder = "blog";
+    if (post.node.frontmatter.postType == "project") {
+      comType = projectPost;
+      folder = "portfolio";
+    }
     createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
+      path:`${folder}${post.node.fields.slug}`,
+      component: comType,
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -52,9 +59,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode});
     createNodeField({
       name: `slug`,
       node,

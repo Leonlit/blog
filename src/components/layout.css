@@ -76,7 +76,7 @@ p {
 .socialMedias:hover {
     position: relative;
     transform: scale(1.5);
-    background-image: radial-gradient(rgb(168, 168, 168) 5%, white 90%);
+    background-image: radial-gradient(rgb(168, 168, 168) 20%, white 50%,white 30%);
 }
 
 .headerImg {
@@ -108,6 +108,10 @@ p {
 
 .blog-card {
     max-width:90%;
+}
+
+.post-navigation li{
+    max-width:300px;
 }
 
 footer {

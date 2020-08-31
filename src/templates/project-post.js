@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql} from "gatsby";
+import { Link, graphql } from "gatsby";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
@@ -8,7 +8,6 @@ import ShareToMedia from "../components/shareToMedia";
 import { rhythm, scale } from "../utils/typography";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-
   const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const {title, description, date, thumbnail} = frontmatter;
@@ -28,6 +27,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   } else {
     next_type = "blog";
   }
+
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -108,29 +108,31 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
 export default BlogPostTemplate
 
-export const blogPost = graphql`
-query BlogPostBySlug($slug: String!) {
-  site {
-    siteMetadata {
-      title
+export const pageQuery = graphql`
+  query ProjectpostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
     }
-  }
-  markdownRemark(fields: { slug: { eq: $slug } }) {
-    excerpt(pruneLength: 160)
-    html
-    frontmatter {
-      title
-      date(formatString: "MMMM DD, YYYY")
-      description
-      postType
-      thumbnail {
-        childImageSharp {
-          fluid(maxWidth: 1140, maxHeight: 1140) {
-            ...GatsbyImageSharpFluid
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+        postType
+        website
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1140, maxHeight: 1140) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
     }
   }
-}
 `
