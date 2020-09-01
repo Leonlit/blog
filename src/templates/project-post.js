@@ -37,55 +37,24 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         url={postUrl}
       />
       <article>
-        <header style={{
-          marginBottom: "5%",
-        }}>
-          <h2
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-              backgroundImage: `url("${thumbnail}")`,
-            }}
-          >
-            {title}
-          </h2>
-          <p
-            style={{
-              ...scale(-1 / 9),
-              display: `block`,
-              marginTop: "10px",
-              marginBottom: rhythm(1),
-            }}
-          >
-            {date}
-          </p>
+        <header>
+          <h2>{title}</h2>
+          <p>{date}</p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
+        <hr/>
+        <ShareToMedia 
+          url = {postUrl}
+          title = {title}
+          description = {description || excerpt}
         />
-      <ShareToMedia 
-      url = {postUrl}
-      title = {title}
-      description = {description || excerpt}
-      />
         <footer>
           <Bio />
         </footer>
       </article>
 
       <nav className="post-navigation">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul>
           <li>
             {previous && (
               <Link to={`/${pre_type}${previous.fields.slug}`} rel="prev">

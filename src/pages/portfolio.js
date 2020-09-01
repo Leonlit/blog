@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql, useStaticQuery} from "gatsby"
 
-import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
@@ -60,25 +59,18 @@ const Portfollio = ({ location }) => {
           return (
             <div className="card project-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-              <header style={{
-                marginBottom: "20px", 
-              }}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(2 / 4),
-                  }}
-                >
+              <header>
+                <h3>
                   <Link style={{ boxShadow: `none` }} to={`../portfolio${slug}/.`}>
                     {title}
                   </Link>
                 </h3>
-                <small style={{
-                  fontWeight: "900",
-                }}>{date}</small>
+                <small>{date}</small>
                 <div>
                   Website: <a href={`https://${website[1]}`} target="_blank" rel="noreferrer">{website[0]}</a>
                 </div>
               </header>
+              <hr/>
               <section>
                 <p
                   dangerouslySetInnerHTML={{

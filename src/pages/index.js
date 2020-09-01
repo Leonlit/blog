@@ -3,7 +3,6 @@ import { Link, graphql, useStaticQuery} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 
 const Index = ({ location }) => {
@@ -59,22 +58,15 @@ const Index = ({ location }) => {
           return (
             <article className="card blog-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-              <header style={{
-                marginBottom: "20px"
-              }}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
+              <header>
+                <h3>
                   <Link style={{ boxShadow: `none` }} to={`../blog${slug}/.`}>
                     {title}
                   </Link>
                 </h3>
-                <small style={{
-                  fontWeight: "900",
-                }}>{node.frontmatter.date}</small>
+                <small>{node.frontmatter.date}</small>
               </header>
+              <hr/>
               <section>
                 <p
                   dangerouslySetInnerHTML={{
