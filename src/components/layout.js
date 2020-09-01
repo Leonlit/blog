@@ -1,7 +1,7 @@
+import {FaTimes, FaBars} from "react-icons/fa";
 import React from "react";
 import { Link } from "gatsby";
 
-import { rhythm, scale } from "../utils/typography";
 import {siteMetadata} from "../../gatsby-config";
 import "./layout.css";
 import RecentPost from "./recentPost";
@@ -11,14 +11,7 @@ const Layout = ({ title, children }) => {
   let counter = 0;
 
   let header = (
-      <h1
-        style={{
-          ...scale(1.1),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-          id="title"
-          >
+      <h1 id="title">
         <Link
           style={{
             boxShadow: `none`,
@@ -31,26 +24,23 @@ const Layout = ({ title, children }) => {
       </h1>
     )
   return (
-    <div
-      style={{
-        marginLeft: `5%`,
-        maxWidth: "100%",
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    > 
+    <div className="titleContainer"> 
       <div>
         <header>{header}</header>
       </div>
-      <nav style={{
-        marginBottom: "20px",
-      }}>
+      <nav className="title_nav">
+      <FaBars id="openNav" className="navLogo"/>
+      <FaTimes id="closeNav" className="navLogo"/>
         {pages.map(({name, link}) => {
           return (
-            <Link key={counter++} to={link}>
-                  {name}
-            </Link>
+            <span>
+              <Link key={counter++} to={link}>
+                    {name}
+              </Link>
+            </span>
           )
         })}
+        
       </nav>
       <hr style={{
         marginBottom: "5%",

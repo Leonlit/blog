@@ -1,16 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ShareToMedia from "../components/shareToMedia";
-import { rhythm, scale } from "../utils/typography";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const {title, description, date, thumbnail} = frontmatter;
+  const {title, description, date, thumbnail_attr} = frontmatter;
   const { previous, next } = pageContext
   const postUrl = location.href;
 
@@ -37,6 +37,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         url={postUrl}
       />
       <article>
+        <Img className="postThumbnail" fluid={frontmatter.thumbnail.childImageSharp.fluid}/>
+        {frontmatter.thumbnail_attr && (
+          <span style={{
+            textAlign: "center",
+            display: "block",
+          }}>{frontmatter.thumbnail_attr[0]} from &nbsp;
+            <a href={frontmatter.thumbnail_attr[1]}>
+              {frontmatter.thumbnail_attr[1]}
+            </a>
+          </span>
+        )}
         <header>
           <h2>{title}</h2>
           <p>{date}</p>
@@ -94,6 +105,7 @@ export const pageQuery = graphql`
         description
         postType
         website
+        thumbnail_attr
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 1140, maxHeight: 1140) {

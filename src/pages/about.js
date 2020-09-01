@@ -1,39 +1,20 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import {FaTwitter, FaGithub, FaLinkedin} from "react-icons/fa";
-import {IconContext} from "react-icons"
+import SocialMedia from "../components/socialMedia"
 
-import {siteMetadata} from "../../gatsby-config"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-
-
 const BlogAbout = ({ location }) => {
-  const siteTitle = siteMetadata.title
-
   const data = useStaticQuery(
     graphql`
       query MediaQuery {
         site {
           siteMetadata {
+            title
             author {
               name
               summary
-            }
-            social {
-              twitter {
-                url
-                name
-              }
-              github {
-                url
-                name
-              }
-              linkedIn {
-                url
-                name
-              }
             }
           }
         }
@@ -41,58 +22,20 @@ const BlogAbout = ({ location }) => {
     `
   )
 
-  const {twitter, github, linkedIn} = data.site.siteMetadata.social;
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="About Me" />
         <h2>About Me</h2>
-
-        <IconContext.Provider 
-          key="twitter"
-          value={{ style: {fontSize: '40px', color: "rgb(0, 123, 255)"}}}>
-          <a 
-              href={twitter.url} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="socialMedias"
-          >
-             <FaTwitter/>
-          </a>
-        </IconContext.Provider>
-
-        <IconContext.Provider 
-          key="github"
-          value={{ style: {fontSize: '40px', color: "black"}}}>
-          <a 
-              href={github.url} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="socialMedias"
-          >
-             <FaGithub/>
-          </a>
-        </IconContext.Provider>
-
-        <IconContext.Provider 
-          key="linkedIn"
-          value={{ style: {fontSize: '40px', color: "#4267B2"}}}>
-          <a 
-              href={linkedIn.url} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="socialMedias"
-          >
-             <FaLinkedin/>
-          </a>
-        </IconContext.Provider>
-
           <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
             electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
           </p>
+
+          <SocialMedia/>
 
           <h3>Experience</h3>
           <p>

@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql} from "gatsby";
+import Img from "gatsby-image";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
@@ -10,7 +11,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const {title, description, date, thumbnail} = frontmatter;
+  const {title, description, date} = frontmatter;
   const { previous, next } = pageContext
   const postUrl = location.href;
 
@@ -36,6 +37,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         url={postUrl}
       />
       <article>
+        <Img className="postThumbnail" fluid={frontmatter.thumbnail.childImageSharp.fluid}/>
         <header>
           <h2>{title}</h2>
           <p>{date}</p>
