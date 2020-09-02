@@ -38,7 +38,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <Img className="postThumbnail" fluid={frontmatter.thumbnail.childImageSharp.fluid}/>
-        {frontmatter.thumbnail_attr && (
+        {thumbnail_attr && (
           <span style={{
             textAlign: "center",
             display: "block",

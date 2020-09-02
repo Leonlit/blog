@@ -38,7 +38,9 @@
   },
   "homepage": "https://github.com/Leonlit/A-Somewhat-Minimally-Designed-Blog#readme",
   "keywords": [
-    "gatsby", "gatsby-template", "minimal-blog-design"
+    "gatsby",
+    "gatsby-template",
+    "minimal-blog-design"
   ],
   "license": "0BSD",
   "main": "n/a",
@@ -50,6 +52,7 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
+    "local-server": "gatsby develop -H 192.168.0.114 -p 8000",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

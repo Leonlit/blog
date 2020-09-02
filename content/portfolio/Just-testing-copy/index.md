@@ -5,7 +5,7 @@ description: Testing the positioning between projects
 postType: "project"
 website: ["github","www.github.com"]
 thumbnail: "./leon.png"
-thumbnail_attr: ["Designed by rawpixel.com", "https://www.freepik.com/"]
+thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
 ---
 
 This post is used to test the positioning of the element. Well that's just how flex works lol

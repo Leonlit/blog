@@ -11,7 +11,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const {title, description, date} = frontmatter;
+  const {title, description, date, thumbnail_attr} = frontmatter;
   const { previous, next } = pageContext
   const postUrl = location.href;
 
@@ -38,6 +38,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <Img className="postThumbnail" fluid={frontmatter.thumbnail.childImageSharp.fluid}/>
+        {thumbnail_attr && (
+          <span style={{
+            textAlign: "center",
+            display: "block",
+          }}>{frontmatter.thumbnail_attr[0]} from &nbsp;
+            <a href={frontmatter.thumbnail_attr[1]}>
+              {frontmatter.thumbnail_attr[1]}
+            </a>
+          </span>
+        )}
         <header>
           <h2>{title}</h2>
           <p>{date}</p>
@@ -93,6 +103,7 @@ query BlogPostBySlug($slug: String!) {
       date(formatString: "MMMM DD, YYYY")
       description
       postType
+      thumbnail_attr
       thumbnail {
         childImageSharp {
           fluid(maxWidth: 1140, maxHeight: 1140) {
