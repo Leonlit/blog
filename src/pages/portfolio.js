@@ -50,7 +50,7 @@ const Portfollio = ({ location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Portfolio" />
+      <SEO title="Portfolio" description="Page for displaying the owners portfolios and projects"/>
       <div className="flex">
         {posts.map(({ node }) => {
           const slug = node.fields.slug

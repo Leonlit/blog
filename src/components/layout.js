@@ -3,11 +3,11 @@ import React from "react";
 import {withPrefix, Link } from "gatsby";
 import Helmet from "react-helmet"
 
-import {siteMetadata} from "../../gatsby-config";
 import "./desktop.css";
 import "./mobile.css";
 import RecentPost from "./recentPost";
 import NavigationMenu from "./navigationMenu";
+import Footer from "./footer";
 
 const Layout = ({ title, children }) => {
   let header = (
@@ -40,11 +40,7 @@ const Layout = ({ title, children }) => {
           <RecentPost/>
         </aside>
       </div>
-      <footer>
-        © {new Date().getFullYear()} {siteMetadata.author.name}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer/>
       <Helmet>
         <script src={withPrefix('navigationMenu.js')} type="text/javascript" />
       </Helmet>

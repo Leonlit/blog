@@ -26,7 +26,7 @@ const BlogAbout = ({ location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="About Me" />
+      <SEO title="About Me" description="A little self introduction"/>
         <h2>About Me</h2>
           <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,

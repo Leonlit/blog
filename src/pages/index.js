@@ -51,7 +51,7 @@ const Index = ({ location }) => {
     
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home" />
+      <SEO title="Home" description="Home page for the template site"/>
       <div>
         {posts.map(({ node }) => {
           const slug = node.fields.slug;

@@ -7,8 +7,7 @@ const NavigationMenu = () => {
     let counter = 0;
     const pages = siteMetadata.menuLinks;
   return (
-    <div>
-        <nav className="">
+        <nav>
             {pages.map(({name, link}) => {
                 let extra = ""
                 if (counter < pages.length -1) {
@@ -23,7 +22,6 @@ const NavigationMenu = () => {
             )
             })}
         </nav>
-    </div>
   )
 }
 export default NavigationMenu;
