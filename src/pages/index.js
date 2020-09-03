@@ -7,7 +7,6 @@ import Img from "gatsby-image";
 import Tags from "../components/feature/tags";
 
 const Index = ({ location }) => {
-
   const blogQuery = useStaticQuery(
     graphql`
       query index{
@@ -49,7 +48,7 @@ const Index = ({ location }) => {
 
   const siteTitle = blogQuery.site.siteMetadata.title
   const posts = blogQuery.allMarkdownRemark.edges
-    
+    console.log(location.href);
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" description="Home page for the template site"/>
@@ -63,7 +62,7 @@ const Index = ({ location }) => {
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
               <header>
                 <h3>
-                  <Link style={{ boxShadow: `none` }} to={`../blog${slug}/.`}>
+                  <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
                     {title}
                   </Link>
                 </h3>

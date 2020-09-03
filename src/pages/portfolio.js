@@ -59,13 +59,12 @@ const Portfollio = ({ location }) => {
           const slug = node.fields.slug
           const title = node.frontmatter.title || slug;
           const {date, description, website, categories} = node.frontmatter;
-          console.log(categories);
           return (
             <div className="card project-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
               <header>
                 <h3>
-                  <Link style={{ boxShadow: `none` }} to={`../portfolio${slug}/.`}>
+                  <Link style={{ boxShadow: `none` }} to={`/portfolio${slug}`}>
                     {title}
                   </Link>
                 </h3>

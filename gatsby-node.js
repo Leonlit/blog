@@ -60,11 +60,9 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const categoriesFound = blog.data.categoriesGroup.group;
-  console.log(categoriesFound);
   if (categoriesFound.length > 0) {
     // creating page for every single catergory
     categoriesFound.forEach(item => {
-      console.log(item.fieldValue);
       createPage({
         path: `category/${item.fieldValue}`,
         component: categoryPage,
