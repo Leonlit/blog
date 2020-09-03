@@ -34,12 +34,7 @@ const RecentPost = () => {
             }
             return (
                 <Link key={counter++} 
-                style={{
-                    padding: "5px",
-                    borderRadius: "5px",
-                    boxShadow: "none",
-                    display:"block",
-                }}
+                className="side_menu_links"
                 activeStyle={{ backgroundColor: "#bfbfbf" }}
                 partiallyActive={true}
                 to={`/${folder}${post.fields.slug}`}

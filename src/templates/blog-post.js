@@ -5,10 +5,9 @@ import Img from "gatsby-image";
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import ShareToMedia from "../components/shareToMedia";
+import ShareToMedia from "../components/feature/shareToMedia";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-
   const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const {title, description, date, thumbnail_attr} = frontmatter;
@@ -102,7 +101,8 @@ query BlogPostBySlug($slug: String!) {
       title
       date(formatString: "MMMM DD, YYYY")
       description
-      postType
+      website
+      categories
       thumbnail_attr
       thumbnail {
         childImageSharp {

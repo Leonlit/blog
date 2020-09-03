@@ -3,9 +3,9 @@ import React from "react";
 import {withPrefix, Link } from "gatsby";
 import Helmet from "react-helmet"
 
-import "./desktop.css";
-import "./mobile.css";
-import RecentPost from "./recentPost";
+import "../style/desktop.css";
+import "../style/mobile.css";
+import RecentPost from "./feature/recentPost";
 import NavigationMenu from "./navigationMenu";
 import Footer from "./footer";
 

@@ -1,10 +1,10 @@
-import React from "react"
-import {Link, graphql, useStaticQuery} from "gatsby"
+import React from "react";
+import {Link, graphql, useStaticQuery} from "gatsby";
 
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Img from "gatsby-image"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Img from "gatsby-image";
+import Tags from "../components/feature/tags";
 
 const Index = ({ location }) => {
 
@@ -17,7 +17,7 @@ const Index = ({ location }) => {
           }
         }
         allMarkdownRemark(
-          filter: {frontmatter: {postType: {eq: "blog"}}},
+          filter: {frontmatter: {postType: {eq: "blog"}}}
           sort: { fields: [frontmatter___date], order: DESC }
         ) {
           edges {
@@ -31,6 +31,7 @@ const Index = ({ location }) => {
                 title
                 description
                 postType
+                categories
                 thumbnail {
                   childImageSharp {
                     fluid(maxWidth: 1140, maxHeight: 600) {
@@ -56,6 +57,7 @@ const Index = ({ location }) => {
         {posts.map(({ node }) => {
           const slug = node.fields.slug;
           const title = node.frontmatter.title || slug
+          const tags = node.frontmatter.categories;
           return (
             <article className="card blog-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
@@ -67,6 +69,7 @@ const Index = ({ location }) => {
                 </h3>
                 <small>{node.frontmatter.date}</small>
               </header>
+              {tags && <Tags tags={tags}/>}
               <hr/>
               <section>
                 <p

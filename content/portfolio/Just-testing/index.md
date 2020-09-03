@@ -3,6 +3,7 @@ title: Just testing the positioning and navigation between elements
 date: "2015-05-29T22:40:32.169Z"
 description: Another dummy post for testing the element's positioning
 postType: "project"
+categories: ["portfolio", "test-post"]
 website: ["github","www.github.com"]
 thumbnail: "./leon.png"
 thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]

@@ -5,13 +5,12 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const projectPost = path.resolve(`./src/templates/project-post.js`)
+  const categoryPage = path.resolve(`./src/templates/category-page.js`);
   const blog = await graphql(
     `
       {
-        allMarkdownRemark(
+        posts: allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
         ) {
           edges {
             node {
@@ -21,8 +20,14 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 postType
+                categories
               }
             }
+          }
+        }
+        categoriesGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___categories) {
+            fieldValue
           }
         }
       }
@@ -34,20 +39,18 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = blog.data.allMarkdownRemark.edges
+  const posts = blog.data.posts.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
-    let comType = blogPost;
     let folder = "blog";
     if (post.node.frontmatter.postType == "project") {
-      comType = projectPost;
       folder = "portfolio";
     }
     createPage({
       path:`${folder}${post.node.fields.slug}`,
-      component: comType,
+      component: blogPost,
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -55,6 +58,22 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const categoriesFound = blog.data.categoriesGroup.group;
+  console.log(categoriesFound);
+  if (categoriesFound.length > 0) {
+    // creating page for every single catergory
+    categoriesFound.forEach(item => {
+      console.log(item.fieldValue);
+      createPage({
+        path: `category/${item.fieldValue}`,
+        component: categoryPage,
+        context: {
+          category: item.fieldValue,
+        },
+      })
+    })
+  }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

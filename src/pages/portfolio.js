@@ -1,9 +1,10 @@
-import React from "react"
-import { Link, graphql, useStaticQuery} from "gatsby"
+import React from "react";
+import { Link, graphql, useStaticQuery} from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Img from "gatsby-image"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Img from "gatsby-image";
+import Tags from "../components/feature/tags";
 
 const Portfollio = ({ location }) => {
   const portfolioQuery = useStaticQuery(
@@ -15,7 +16,7 @@ const Portfollio = ({ location }) => {
           }
         }
         allMarkdownRemark(
-          filter: {frontmatter: {postType: {eq: "project"}}},
+          filter: {frontmatter: {postType: {eq: "project"}}}
           sort: { fields: [frontmatter___date], order: DESC }
         ) {
           edges {
@@ -29,6 +30,7 @@ const Portfollio = ({ location }) => {
                 title
                 description
                 postType
+                categories
                 website
                 thumbnail {
                   childImageSharp {
@@ -51,11 +53,13 @@ const Portfollio = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Portfolio" description="Page for displaying the owners portfolios and projects"/>
+      <h2 className="page_title"><span>Portfolio</span></h2>
       <div className="flex">
         {posts.map(({ node }) => {
           const slug = node.fields.slug
           const title = node.frontmatter.title || slug;
-          const {date, description, website} = node.frontmatter;
+          const {date, description, website, categories} = node.frontmatter;
+          console.log(categories);
           return (
             <div className="card project-card" key={slug}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
@@ -66,6 +70,7 @@ const Portfollio = ({ location }) => {
                   </Link>
                 </h3>
                 <small>{date}</small>
+                {categories != null && <Tags tags={categories}/>}
                 <div>
                   Website: <a href={`https://${website[1]}`} target="_blank" rel="noreferrer">{website[0]}</a>
                 </div>

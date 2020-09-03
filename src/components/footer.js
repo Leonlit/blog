@@ -17,11 +17,11 @@ const Footer = () => {
                 </span>
             )
             })}
-            <credits>
+            <footer>
                 © {new Date().getFullYear()} {siteMetadata.author.name}, Built with
                 {` `}
                 <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </credits>
+            </footer>
         </nav>
   )
 }
