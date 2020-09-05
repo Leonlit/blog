@@ -31,12 +31,13 @@ const Archive = () => {
   return (
     <div>        
         {groups.map( (arr, index) => {
+            let directory = arr[0].split(",");
             return (
                 <Link key={index} 
                 className="side_menu_links"
                 activeStyle={{ backgroundColor: "#bfbfbf" }}
                 partiallyActive={true}
-                to={`/archive/${arr[0]}`}
+                to={`/archive/${directory[1]}/${directory[0]}`}
                 >{`${arr[0]} (${arr[1]})`}</Link>
             )
         })}

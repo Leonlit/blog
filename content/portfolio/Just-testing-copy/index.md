@@ -1,6 +1,7 @@
 ---
 title: Testing the project section's post positioning
 date: "2015-05-29T22:40:32.169Z"
+dateToken: "May,2015"
 description: Testing the positioning between projects
 postType: "project"
 categories: ["portfolio", "test-post"]

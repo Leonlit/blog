@@ -1,11 +1,13 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { group } = require("console")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const categoryPage = path.resolve(`./src/templates/category-page.js`);
+  const archivePage = path.resolve("./src/templates/archive-page.js");
   const blog = await graphql(
     `
       {
@@ -21,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 postType
                 categories
+                date(formatString: "MMM,YYYY")
               }
             }
           }
@@ -72,6 +75,27 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     })
   }
+
+  //creating page for archive
+  let groups = []
+  posts.forEach(({node})=> {
+      let date = node.frontmatter.date;
+      if (!groups.some((item)=>item === date)) {
+          groups.push(date);
+      }
+  })
+  console.log(groups)
+  groups.forEach( (item) => {
+    console.log(item);
+    let directory = item.split(",");
+    createPage({
+      path: `/archive/${directory[1]}/${directory[0]}`,
+      component: archivePage,
+      context: {
+        archive: item,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
