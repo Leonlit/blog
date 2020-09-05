@@ -44,9 +44,9 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
-    let folder = "blog";
+    let folder = "/blog";
     if (post.node.frontmatter.postType == "project") {
-      folder = "portfolio";
+      folder = "/portfolio";
     }
     createPage({
       path:`${folder}${post.node.fields.slug}`,
@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // creating page for every single catergory
     categoriesFound.forEach(item => {
       createPage({
-        path: `category/${item.fieldValue}`,
+        path: `/category/${item.fieldValue}`,
         component: categoryPage,
         context: {
           category: item.fieldValue,

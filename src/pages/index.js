@@ -48,7 +48,6 @@ const Index = ({ location }) => {
 
   const siteTitle = blogQuery.site.siteMetadata.title
   const posts = blogQuery.allMarkdownRemark.edges
-    console.log(location.href);
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" description="Home page for the template site"/>

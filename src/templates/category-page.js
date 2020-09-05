@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery} from "gatsby";
+import { Link, graphql} from "gatsby";
 import Img from "gatsby-image";
 
 import Layout from "../components/layout";
@@ -11,10 +11,10 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const {category} = pageContext;
-
+  console.log(siteTitle);
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={category} description={`ALl post for #${category}`}/>
+      <SEO title={`${category} | ${siteTitle}`} description={`ALl post for #${category}`}/>
       <div>
         {posts.map(({ node }) => {
           const slug = node.fields.slug;

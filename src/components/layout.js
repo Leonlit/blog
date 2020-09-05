@@ -6,6 +6,7 @@ import Helmet from "react-helmet"
 import "../style/desktop.css";
 import "../style/mobile.css";
 import RecentPost from "./feature/recentPost";
+import Archive from "./feature/archive";
 import NavigationMenu from "./navigationMenu";
 import Footer from "./footer";
 
@@ -38,6 +39,11 @@ const Layout = ({ title, children }) => {
           <h4 style={{marginBottom: "10px",}}>Recent Post</h4>
           <hr/>
           <RecentPost/>
+        </aside>
+        <aside>
+          <h4 style={{marginTop:"50px",}}>Archive</h4>
+          <hr/>
+          <Archive/>
         </aside>
       </div>
       <Footer/>
