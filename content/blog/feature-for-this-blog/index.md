@@ -6,7 +6,7 @@ description: A simple sample blog post on the feature of the "A somewhat minimal
 postType: "blog"
 categories: ["news", "introduction", "template", "feature"]
 website: ["github","www.github.com"]
-thumbnail: "./leon.png"
+thumbnail: "./demo_image.png"
 thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
 ---
 
@@ -15,3 +15,5 @@ thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
  - Side navigation bar
  - Sharing blog post to social medias
  - Responsive design
+
+![test](./leon.png)

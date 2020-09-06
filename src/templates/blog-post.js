@@ -6,11 +6,12 @@ import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ShareToMedia from "../components/feature/shareToMedia";
+import Tags from "../components/feature/tags";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const {excerpt, html, frontmatter} = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const {title, description, date, thumbnail_attr} = frontmatter;
+  const {title, description, date, thumbnail_attr, categories} = frontmatter;
   const { previous, next } = pageContext
   const postUrl = location.href;
 
@@ -27,7 +28,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   } else {
     next_type = "blog";
   }
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -51,6 +51,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h2>{title}</h2>
           <p>{date}</p>
         </header>
+        {categories && <Tags tags={categories}/>}
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr/>
         <ShareToMedia 
@@ -106,7 +107,7 @@ query BlogPostBySlug($slug: String!) {
       thumbnail_attr
       thumbnail {
         childImageSharp {
-          fluid(maxWidth: 1140, maxHeight: 1140) {
+          fluid {
             ...GatsbyImageSharpFluid
           }
         }

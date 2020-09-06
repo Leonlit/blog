@@ -6,7 +6,7 @@ description: Another post for testing post
 postType: "blog"
 categories: ["testing", "dummy-post"]
 website: ["github","www.github.com"]
-thumbnail: "./leon.png"
+thumbnail: "./demo_image.png"
 thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
 ---
 

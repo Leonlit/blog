@@ -11,10 +11,9 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const {category} = pageContext;
-  console.log(siteTitle);
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={`${category} | ${siteTitle}`} description={`ALl post for #${category}`}/>
+      <SEO title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
       <div>
         {posts.map(({ node }) => {
           const slug = node.fields.slug;

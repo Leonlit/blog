@@ -34,7 +34,7 @@ const Portfollio = ({ location }) => {
                 website
                 thumbnail {
                   childImageSharp {
-                    fluid(maxWidth: 1140, maxHeight: 1140) {
+                    fluid {
                       ...GatsbyImageSharpFluid
                     }
                   }

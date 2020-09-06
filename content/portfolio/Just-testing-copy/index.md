@@ -5,8 +5,8 @@ dateToken: "May,2015"
 description: Testing the positioning between projects
 postType: "project"
 categories: ["portfolio", "test-post"]
-website: ["github","www.github.com"]
-thumbnail: "./leon.png"
+website: ["github","github.com/Leonlit/A_Somewhat_Minimally_Designed_Blog"]
+thumbnail: "./demo_image.png"
 thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
 ---
 

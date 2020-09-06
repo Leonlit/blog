@@ -5,7 +5,7 @@ dateToken: "May,2015"
 description: Feature for the blog template
 postType: "project"
 categories: ["portfolio", "test-post"]
-website: ["github","www.github.com"]
+website: ["github","github.com/Leonlit/A_Somewhat_Minimally_Designed_Blog"]
 thumbnail: "./illust.jpg"
 thumbnail_attr: ["Designed by rawpixel.com", "https://www.freepik.com/"]
 ---

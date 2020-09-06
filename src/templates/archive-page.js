@@ -11,10 +11,9 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const {archive} = pageContext;
-  console.log(siteTitle);
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={`${archive} | ${siteTitle}`} description={`ALl post for #${archive}`}/>
+      <SEO title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
       <div>
         {posts.map(({ node }) => {
           const slug = node.fields.slug;
