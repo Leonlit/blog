@@ -11,37 +11,13 @@ const Portfollio = ({ location }) => {
     graphql`
       query portfolio{
         site {
-          siteMetadata {
-            title
-          }
+          ...SiteInformations
         }
         allMarkdownRemark(
           filter: {frontmatter: {postType: {eq: "project"}}}
           sort: { fields: [frontmatter___date], order: DESC }
         ) {
-          edges {
-            node {
-              excerpt
-              fields {
-                slug
-              }
-              frontmatter {
-                date(formatString: "MMMM DD, YYYY")
-                title
-                description
-                postType
-                categories
-                website
-                thumbnail {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
+          ...PostDetails
         }
       }
     `

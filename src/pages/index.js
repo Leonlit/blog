@@ -10,36 +10,13 @@ const Index = ({ location }) => {
     graphql`
       query index{
         site {
-          siteMetadata {
-            title
-          }
+          ...SiteInformations
         }
         allMarkdownRemark(
           filter: {frontmatter: {postType: {eq: "blog"}}}
           sort: { fields: [frontmatter___date], order: DESC }
         ) {
-          edges {
-            node {
-              excerpt
-              fields {
-                slug
-              }
-              frontmatter {
-                date(formatString: "MMMM DD, YYYY")
-                title
-                description
-                postType
-                categories
-                thumbnail {
-                  childImageSharp {
-                    fluid(maxWidth: 1140, maxHeight: 600) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
+          ...PostDetails
         }
       }
     `
@@ -61,4 +38,4 @@ const Index = ({ location }) => {
   )
 }
 
-export default Index
+export default Index;

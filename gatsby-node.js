@@ -1,6 +1,5 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const { group } = require("console")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -85,7 +84,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
   })
   groups.forEach((item) => {
-    console.log(item);
     let directory = item.split(",");
     createPage({
       path: `/archive/${directory[1]}/${directory[0]}`,

@@ -5,7 +5,7 @@ dateToken: "Sep,2020"
 description: Another post for testing post
 postType: "blog"
 categories: ["documentation", "news", "template-feature"]
-thumbnail: "./demo_image.png"
+thumbnail: "./intro_banner.png"
 thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
 ---
 

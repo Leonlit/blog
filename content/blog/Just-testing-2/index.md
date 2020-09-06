@@ -1,7 +1,7 @@
 ---
 title: Just Testing 2
 date: "2020-05-29T22:40:32.169Z"
-dateToken: "May ,2020"
+dateToken: "May,2020"
 description: Another post for testing post
 postType: "blog"
 categories: ["testing", "dummy-post"]

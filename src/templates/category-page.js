@@ -15,9 +15,9 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
       <div>
-        {posts.map(({ node }) => {
+        {posts.map(({ node }, index) => {
           return (
-            <PostCard node={node} locationPlaceholder="../../"/>
+            <PostCard postKey={index} key={`post-${index}`} node={node} locationPlaceholder="../../" />
           )
         })}
       </div>
@@ -30,36 +30,13 @@ export default CategoryPageTemplate
 export const categoryTemplate = graphql`
   query BlogPostByCategory($category: String) {
     site {
-      siteMetadata {
-        title
-      }
+      ...SiteInformations
     }
     allMarkdownRemark(
       filter: {frontmatter: {categories: {in: [$category]}}}
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            postType
-            categories
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1140, maxHeight: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
+      ...PostDetails
     }
   }
 `

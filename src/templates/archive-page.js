@@ -6,7 +6,6 @@ import SEO from "../components/seo";
 import PostCard from "../components/postCard";
 
 const ArchivePageTemplate = ({ data, pageContext, location }) => {
-
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const {archive} = pageContext;
@@ -14,14 +13,14 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
       <div>
-        {posts.map(({ node }) => {
+        {posts.map(({ node }, index) => {
           let folder = "blog";
           if (node.frontmatter.postType === "project") {
             folder = "portfolio";
           }
           
           return (
-            <PostCard node={node} locationPlaceholder={`../../../${folder}`}/>
+            <PostCard postKey={index} key={`post-${index}`} node={node} locationPlaceholder={`../../../${folder}`}/>
           )
         })}
       </div>
@@ -34,37 +33,13 @@ export default ArchivePageTemplate
 export const ArchiveTemplate = graphql`
   query BlogPostByArchive($archive: String) {
     site {
-      siteMetadata {
-        title
-      }
+      ...SiteInformations
     }
     allMarkdownRemark(
       filter: {frontmatter: {dateToken: {eq: $archive}}}
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            dateToken
-            date (formatString: "MMMM DD, YYYY")
-            title
-            description
-            postType
-            categories
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1140, maxHeight: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
+      ...PostDetails
     }
   }
 `

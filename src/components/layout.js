@@ -2,6 +2,7 @@
 import React from "react";
 import {withPrefix, Link } from "gatsby";
 import Helmet from "react-helmet"
+import {graphql} from "gatsby";
 
 import "../style/desktop.css";
 import "../style/mobile.css";
@@ -53,3 +54,38 @@ const Layout = ({ title, children }) => {
 }
 
 export default Layout
+
+export const globalFragmentQuery = graphql`
+  fragment SiteInformations on Site {
+    siteMetadata {
+      title
+    }
+  }
+  fragment PostDetails on MarkdownRemarkConnection {
+    edges {
+      node {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          dateToken
+          date (formatString: "MMMM DD, YYYY")
+          title
+          description
+          postType
+          categories
+          website
+          thumbnail_attr
+          thumbnail {
+            childImageSharp {
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
