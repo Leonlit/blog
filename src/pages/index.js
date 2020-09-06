@@ -1,10 +1,9 @@
 import React from "react";
-import {Link, graphql, useStaticQuery} from "gatsby";
+import {graphql, useStaticQuery} from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Img from "gatsby-image";
-import Tags from "../components/feature/tags";
+import PostCard from "../components/postCard";
 
 const Index = ({ location }) => {
   const blogQuery = useStaticQuery(
@@ -53,30 +52,8 @@ const Index = ({ location }) => {
       <SEO title="Home" description="Home page for the template site"/>
       <div>
         {posts.map(({ node }) => {
-          const slug = node.fields.slug;
-          const title = node.frontmatter.title || slug
-          const tags = node.frontmatter.categories;
           return (
-            <article className="card blog-card" key={slug}>
-              <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-              <header>
-                <h3>
-                  <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              {tags && <Tags tags={tags}/>}
-              <hr/>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
+            <PostCard node={node} locationPlaceholder="/blog"/>
           )
         })}
       </div>

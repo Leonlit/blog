@@ -27,7 +27,6 @@ const Archive = () => {
         }
     })
     groups = Object.keys(groups).map((key) => [key, groups[key]]);
-    console.log(groups);
   return (
     <div>        
         {groups.map( (arr, index) => {

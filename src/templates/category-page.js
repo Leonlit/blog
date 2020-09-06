@@ -1,10 +1,10 @@
 import React from "react"
-import { Link, graphql} from "gatsby";
-import Img from "gatsby-image";
+import { graphql} from "gatsby";
 
+import PostCard from "../components/postCard";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Tags from "../components/feature/tags";
+
 
 const CategoryPageTemplate = ({ data, pageContext, location }) => {
 
@@ -16,36 +16,8 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
       <SEO title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
       <div>
         {posts.map(({ node }) => {
-          const slug = node.fields.slug;
-          const title = node.frontmatter.title || slug
-          const tags = node.frontmatter.categories;
-
-          let folder = "blog";
-          if (node.frontmatter.postType === "project") {
-            folder = "portfolio";
-          }
-
           return (
-            <article className="card blog-card" key={slug}>
-              <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
-              <header>
-                <h3>
-                  <Link style={{ boxShadow: `none` }} to={`../../${folder}${slug}/.`}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              {tags && <Tags tags={tags}/>}
-              <hr/>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
+            <PostCard node={node} locationPlaceholder="../../"/>
           )
         })}
       </div>

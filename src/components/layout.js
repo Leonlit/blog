@@ -39,8 +39,6 @@ const Layout = ({ title, children }) => {
           <h4 style={{marginBottom: "10px",}}>Recent Post</h4>
           <hr/>
           <RecentPost/>
-        </aside>
-        <aside>
           <h4 style={{marginTop:"50px",}}>Archive</h4>
           <hr/>
           <Archive/>
