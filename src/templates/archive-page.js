@@ -31,7 +31,7 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
               <header>
                 <h3>
-                  <Link style={{ boxShadow: `none` }} to={`../../${folder}${slug}/.`}>
+                  <Link style={{ boxShadow: `none` }} to={`../../../${folder}${slug}/.`}>
                     {title}
                   </Link>
                 </h3>
