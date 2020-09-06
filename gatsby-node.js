@@ -84,7 +84,8 @@ exports.createPages = async ({ graphql, actions }) => {
           groups.push(date);
       }
   })
-  groups.forEach( (item) => {
+  groups.forEach((item) => {
+    console.log(item);
     let directory = item.split(",");
     createPage({
       path: `/archive/${directory[1]}/${directory[0]}`,

@@ -27,6 +27,7 @@ const Archive = () => {
         }
     })
     groups = Object.keys(groups).map((key) => [key, groups[key]]);
+    groups.reverse();
   return (
     <div>        
         {groups.map( (arr, index) => {
@@ -37,7 +38,7 @@ const Archive = () => {
                 activeStyle={{ backgroundColor: "#bfbfbf" }}
                 partiallyActive={true}
                 to={`/archive/${directory[1]}/${directory[0]}`}
-                >{`${arr[0]} (${arr[1]})`}</Link>
+                >{`${directory.join(", ")} (${arr[1]})`}</Link>
             )
         })}
     </div>

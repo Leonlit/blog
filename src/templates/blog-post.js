@@ -38,10 +38,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <article>
         <Img className="postThumbnail" fluid={frontmatter.thumbnail.childImageSharp.fluid}/>
         {thumbnail_attr && (
-          <span style={{
-            textAlign: "center",
-            display: "block",
-          }}>{frontmatter.thumbnail_attr[0]} from &nbsp;
+          <span className="attributes">{frontmatter.thumbnail_attr[0]} from &nbsp;
             <a href={frontmatter.thumbnail_attr[1]}>
               {frontmatter.thumbnail_attr[1]}
             </a>
@@ -49,7 +46,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         )}
         <header>
           <h2>{title}</h2>
-          <p>{date}</p>
+          <p className="postDate">{date}</p>
         </header>
         {categories && <Tags tags={categories}/>}
         <section dangerouslySetInnerHTML={{ __html: html }} />

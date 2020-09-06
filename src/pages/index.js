@@ -51,9 +51,9 @@ const Index = ({ location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" description="Home page for the template site"/>
       <div>
-        {posts.map(({ node }) => {
+        {posts.map(({ node }, index) => {
           return (
-            <PostCard node={node} locationPlaceholder="/blog"/>
+            <PostCard postKey={index} node={node} locationPlaceholder="/blog" key={`post-${index}`}/>
           )
         })}
       </div>

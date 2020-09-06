@@ -96,8 +96,20 @@ aside h4 {
     margin-bottom: 20px;
 }
 
+.attributes {
+    text-align: center;
+    display: block;
+    font-size: 14px;
+}
+
+.postDate {
+    color: rgba(0, 0, 0, 0.459);
+    font-weight: 900;
+}
+
 .tags {
     display: inline-block;
+    font-size:14px;
     margin-right: 10px;
     background-color: rgb(238, 238, 238);
     border-radius: 5px;
@@ -127,7 +139,7 @@ article header {
 }
 
 article header h2{
-    margin-top: 5%;
+    margin-top: 50px;
     margin-bottom: 0;
 }
 
@@ -207,7 +219,6 @@ p {
 
 .postThumbnail {
     max-width:100%;
-    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }

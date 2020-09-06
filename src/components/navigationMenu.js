@@ -8,12 +8,12 @@ const NavigationMenu = () => {
   return (
         <nav>
             {pages.map(({name, link}, index) => {
-                let extra = ""
+                let extra = "";
                 if (index < pages.length -1) {
                     extra = "|";
                 }
             return (
-                <span key={index++} >
+                <span key={++index} >
                 <Link to={link}>
                         {name}
                 </Link> {extra}&nbsp;

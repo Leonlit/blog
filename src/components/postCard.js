@@ -3,13 +3,13 @@ import {Link} from "gatsby"
 import Tags from "../components/feature/tags";
 import Img from "gatsby-image";
 
-const PostCard = ({node, locationPlaceholder}) => {
+const PostCard = ({node, locationPlaceholder, postKey}) => {
     const slug = node.fields.slug;
     const title = node.frontmatter.title
     const tags = node.frontmatter.categories;
 
   return (
-    <article className="card blog-card" key={slug}>
+    <article className="card blog-card" key={postKey}>
         <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
         <header>
         <h3>
