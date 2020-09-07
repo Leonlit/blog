@@ -4,12 +4,32 @@
         display: block;
         width:95%;
         margin-left:0;
+        margin-bottom: 10%;
+    }
+
+    .blogLogo {
+        transform: translateX(-50%);
+        margin-left:45%;
+    }
+
+    .blogContainer header{
+        margin-top: 5%;
+        margin-bottom: 50px;
+        margin-left:0;
     }
 
     #title {
-        font-size:2.0em;
+        margin-top:5%;
         width:85%;
+        height: 50px;
+        line-height: 50px;
+        position: relative;
+        text-align:center;
+        border:none;
+    }
 
+    #title a {
+        font-size: 46px;
     }
 
     .title_nav {
@@ -50,5 +70,10 @@
         width: 95%;
         min-width: 95%;
         margin-left:0;
+    }
+
+    .shareToMedias {
+        margin-top:5%;
+        margin-bottom:5%;
     }
 }

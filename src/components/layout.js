@@ -26,9 +26,12 @@ const Layout = ({ title, children }) => {
       </h1>
     )
   return (
-    <div className="titleContainer">
+    <div className="blogContainer">
       <div>
-        <header>{header}</header>
+        <header>
+          <img alt="Blog's logo" src="/blog-ico.png" className="blogLogo"/>
+          {header}
+        </header>
       </div>
       <NavigationMenu/>
       <hr style={{
@@ -64,6 +67,7 @@ export const globalFragmentQuery = graphql`
   fragment PostDetails on MarkdownRemarkConnection {
     edges {
       node {
+        id
         excerpt
         fields {
           slug

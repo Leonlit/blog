@@ -36,7 +36,7 @@ const Portfollio = ({ location }) => {
           const title = node.frontmatter.title || slug;
           const {date, description, website, categories} = node.frontmatter;
           return (
-            <div className="card project-card" key={slug}>
+            <div className="card project-card" key={node.id}>
               <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
               <header>
                 <h3>

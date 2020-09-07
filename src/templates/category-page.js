@@ -15,9 +15,9 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
       <div>
-        {posts.map(({ node }, index) => {
+        {posts.map(({ node }) => {
           return (
-            <PostCard postKey={index} key={`post-${index}`} node={node} locationPlaceholder="../../" />
+            <PostCard key={node.id} node={node} locationPlaceholder="../../" />
           )
         })}
       </div>

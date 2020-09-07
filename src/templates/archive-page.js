@@ -13,14 +13,14 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
       <div>
-        {posts.map(({ node }, index) => {
+        {posts.map(({ node }) => {
           let folder = "blog";
           if (node.frontmatter.postType === "project") {
             folder = "portfolio";
           }
           
           return (
-            <PostCard postKey={index} key={`post-${index}`} node={node} locationPlaceholder={`../../../${folder}`}/>
+            <PostCard key={node.id} node={node} locationPlaceholder={`../../../${folder}`}/>
           )
         })}
       </div>

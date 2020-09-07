@@ -2,6 +2,7 @@ module.exports = {
   pathPrefix: "/A_Somewhat_Minimally_Designed_Blog",
   siteMetadata: {
     title: `A Somewhat Minimally Designed Blog`,
+    logo: "public/blog-ico.png",
     author: {
       name: `Leon Lit`,
       summary: `I'm Creating some fun side project.`,

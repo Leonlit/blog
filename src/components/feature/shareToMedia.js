@@ -28,7 +28,7 @@ const ShareToMedia = ({url, title}) => {
     ]
     let counter = 0;
   return (
-    <div>
+    <div className="shareToMedias">
         {
             media_endpoint.map(media => {
                 return (
