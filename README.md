@@ -1,3 +1,3 @@
 # A minimally designed blog
 
-(WIP)
+# Deprecated! Planning to re-build the whole thing
