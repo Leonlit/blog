@@ -10,7 +10,7 @@ const PostCard = ({node, locationPlaceholder}) => {
 
   return (
     <article className="card blog-card">
-        <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/>
+        {/* <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/> */}
         <header>
         <h3>
             <Link style={{ boxShadow: `none` }} to={`${locationPlaceholder}${slug}.`}>

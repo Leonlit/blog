@@ -8,6 +8,7 @@ import "../style/desktop.css";
 import "../style/mobile.css";
 import RecentPost from "./feature/recentPost";
 import Archive from "./feature/archive";
+import Tags from "./feature/tags";
 import NavigationMenu from "./navigationMenu";
 import Footer from "./footer";
 
@@ -46,6 +47,9 @@ const Layout = ({ title, children }) => {
           <h4 style={{marginTop:"50px",}}>Archive</h4>
           <hr/>
           <Archive/>
+          <h4 style={{marginTop:"50px",}}>Categories</h4>
+          <hr/>
+          <Tags/>
         </aside>
       </div>
       <Footer/>

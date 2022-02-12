@@ -1,11 +1,23 @@
 import React from "react"
-import {Link} from "gatsby"
+import { useStaticQuery, Link, graphql} from "gatsby"
 
-const Tags = ({tags}) => {
+const Tags = () => {
+
+    const data = useStaticQuery(
+        graphql` query {
+            allMarkdownRemark {
+                distinct(field: frontmatter___categories)
+            }
+        }`
+    );
+
+    console.log(data.allMarkdownRemark);
+    const {distinct} = data.allMarkdownRemark;
+    console.log(distinct)
     return (
         <div className="tags_container">
             {
-            tags.map ((tag, index) => {
+            distinct.map ((tag, index) => {
                 return (
                     <Link key={index}
                     className="tags"
