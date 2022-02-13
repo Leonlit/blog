@@ -14,7 +14,7 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
       <SEO title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
       <div>
         {posts.map(({ node }) => {
-          let folder = "blog";
+          let folder = "article";
           if (node.frontmatter.postType === "project") {
             folder = "portfolio";
           }

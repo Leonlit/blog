@@ -13,7 +13,7 @@ const PostCard = ({node}) => {
         {/* <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/> */}
         <header>
         <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${slug}.`}>
+            <Link style={{ boxShadow: `none` }} to={`/article${slug}.`}>
             {title}
             </Link>
         </h3>

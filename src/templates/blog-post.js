@@ -19,14 +19,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   if (previous && previous.frontmatter.postType === "project") {
     pre_type = "portfolio";
   } else {
-    pre_type = "blog";
+    pre_type = "article";
   }
 
   let next_type = "";
   if (next && next.frontmatter.postType === "project") {
     next_type = "portfolio";
   } else {
-    next_type = "blog";
+    next_type = "article";
   }
   return (
     <Layout location={location} title={siteTitle}>

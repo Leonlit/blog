@@ -47,13 +47,14 @@
     "url": "git+https://github.com/Leonlit/A-Somewhat-Minimally-Designed-Blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "gatsby build --prefix-paths",
+    "build-deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gh-pages -d public",
     "develop": "gatsby develop",
     "//": "note: remember to change the ip address to your private address",
     "local-server": "gatsby develop -H 192.168.0.113 -p 8000",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve --prefix-paths",
     "build-serve-prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

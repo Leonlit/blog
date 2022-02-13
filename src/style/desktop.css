@@ -276,6 +276,11 @@ p {
 
 .footer_page_nav a {
     color: rgb(163, 163, 163);
+    border-bottom: 1px solid transparent;
+}
+
+.footer_page_nav a:hover {
+    border-bottom: 1px solid;
 }
 
 footer {

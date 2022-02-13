@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
-    let folder = "/blog";
+    let folder = "/article";
     if (post.node.frontmatter.postType == "project") {
       folder = "/portfolio";
     }
