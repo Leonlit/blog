@@ -102,6 +102,11 @@ aside h4 {
     box-shadow: none;
     display:block;
     margin-bottom: 5px;
+    border-left: 1px solid transparent;
+}
+
+.side_menu_links:hover {
+    border-left: 1px solid;
 }
 
 .tags_container {
@@ -244,6 +249,10 @@ p {
     justify-content: space-between;
     list-style: none;
     padding: 0;
+}
+
+.post-navigation ul li:last-child {
+    margin-left: auto;
 }
 
 .post-navigation li{

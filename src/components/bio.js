@@ -29,6 +29,10 @@ const Bio = () => {
               url
               name
             }
+            portfolio {
+              url
+              name
+            }
           }
         }
       }
@@ -61,12 +65,17 @@ const Bio = () => {
         {` `}
         Follow me on &nbsp;
         <a href={social.twitter.url} target="_blank" rel="noreferrer">
-           Twitter
+          Twitter
         </a>
         &nbsp;and check out my&nbsp;
         <a href={social.github.url} target="_blank" rel="noreferrer">
           Github
-        </a> profile :D
+        </a>
+        &nbsp; profile as well as my &nbsp;
+        <a href={social.portfolio.url} target="_blank" rel="noreferrer">
+          portfolio
+        </a>
+        &nbsp;site :D
       </p>
     </div>
   )

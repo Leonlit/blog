@@ -22,7 +22,7 @@ const Tags = () => {
                     <Link key={index}
                     className="tags"
                     to={`/category/${tag}`}
-                    >#{tag}</Link>
+                    >{tag}</Link>
                 )
             })
             }

@@ -22,6 +22,10 @@ module.exports = {
         url: `https://www.linkedin.com/in/leon-lit-152480142/`,
         name: "leon-lit"
       },
+      portfolio: {
+        url: `https://leonlit.github.io/`,
+        name: "leonlit"
+      }
     },
     menuLinks : [
       {

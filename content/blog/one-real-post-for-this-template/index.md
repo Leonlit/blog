@@ -30,4 +30,4 @@ Navigate around and see for yourself if the template suites your requirements.
 
 ## Bugs, feature request and mistakes.
 
-If you found any bugs or mistakes, feel free to open an isssue [here](https://github.com/Leonlit/A_Somewhat_Minimally_Designed_Blog/issues). If you want to recommend a feature also feel free to open an issue with the tag "feature-request".
+If you found any bugs or mistakes, feel free to open an isssue <a href="https://github.com/Leonlit/A_Somewhat_Minimally_Designed_Blog/issues" target="_blank" rel="noreferrer">here</a>. If you want to recommend a feature also feel free to open an issue with the tag "feature-request".
