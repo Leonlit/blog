@@ -3,7 +3,7 @@ import {Link} from "gatsby"
 import Tags from "../components/feature/tags";
 import Img from "gatsby-image";
 
-const PostCard = ({node, locationPlaceholder}) => {
+const PostCard = ({node}) => {
     const slug = node.fields.slug;
     const title = node.frontmatter.title
     const tags = node.frontmatter.categories;
@@ -13,7 +13,7 @@ const PostCard = ({node, locationPlaceholder}) => {
         {/* <Img className="headerImg" fluid={node.frontmatter.thumbnail.childImageSharp.fluid}/> */}
         <header>
         <h3>
-            <Link style={{ boxShadow: `none` }} to={`${locationPlaceholder}${slug}.`}>
+            <Link style={{ boxShadow: `none` }} to={`/blog${slug}.`}>
             {title}
             </Link>
         </h3>

@@ -30,7 +30,7 @@ const Layout = ({ title, children }) => {
     <div className="blogContainer">
       <div>
         <header>
-          <img alt="Blog's logo" src="/blog-ico.png" className="blogLogo"/>
+          <img alt="Blog's logo" src={withPrefix("blog-ico.png")} className="blogLogo"/>
           {header}
         </header>
       </div>

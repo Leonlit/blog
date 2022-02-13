@@ -30,7 +30,7 @@ const Index = ({ location }) => {
       <div>
         {posts.map(({ node }) => {
           return (
-            <PostCard node={node} locationPlaceholder="/blog" key={node.id}/>
+            <PostCard node={node} key={node.id}/>
           )
         })}
       </div>

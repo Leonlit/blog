@@ -11,9 +11,7 @@ const Tags = () => {
         }`
     );
 
-    console.log(data.allMarkdownRemark);
     const {distinct} = data.allMarkdownRemark;
-    console.log(distinct)
     return (
         <div className="tags_container">
             {
