@@ -5,14 +5,15 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PostCard from "../components/postCard";
 
-const Index = ({ location }) => {
+const Article = ({ location }) => {
   const blogQuery = useStaticQuery(
     graphql`
-      query index{
+      query article{
         site {
           ...SiteInformations
         }
         allMarkdownRemark(
+          filter: {frontmatter: {postType: {eq: "blog"}}}
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 10
         ) {
@@ -26,7 +27,7 @@ const Index = ({ location }) => {
   const posts = blogQuery.allMarkdownRemark.edges
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home" description="Home page for the template site"/>
+      <SEO title="Article" description="Articles page for the site"/>
       <div>
         {posts.map(({ node }) => {
           return (
@@ -38,4 +39,4 @@ const Index = ({ location }) => {
   )
 }
 
-export default Index;
+export default Article;
