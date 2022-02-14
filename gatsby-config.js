@@ -33,14 +33,6 @@ module.exports = {
         link: "/"
       },
       {
-        name: "Article",
-        link: "/article"
-      },
-      {
-        name: "Portfolio",
-        link: "/portfolio"
-      },
-      {
         name: "About Me",
         link: "/about"
       },
@@ -52,13 +44,6 @@ module.exports = {
       options: {
         path: `${__dirname}/content/article`,
         name: `article`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/portfolio`,
-        name: `portfolio`,
       },
     },
     {

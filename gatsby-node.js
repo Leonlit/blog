@@ -47,9 +47,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
     let folder = "/article";
-    if (post.node.frontmatter.postType == "project") {
-      folder = "/portfolio";
-    }
     createPage({
       path:`${folder}${post.node.fields.slug}`,
       component: blogPost,

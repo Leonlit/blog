@@ -14,11 +14,7 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
       <SEO title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
       <div>
         {posts.map(({ node }) => {
-          let folder = "article";
-          if (node.frontmatter.postType === "project") {
-            folder = "portfolio";
-          }
-          
+          let folder = "article";         
           return (
             <PostCard key={node.id} node={node} locationPlaceholder={`../../../${folder}`}/>
           )

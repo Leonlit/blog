@@ -95,7 +95,6 @@ export const globalFragmentQuery = graphql`
           description
           postType
           categories
-          website
           thumbnail_attr
           thumbnail {
             childImageSharp {

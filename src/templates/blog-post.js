@@ -15,19 +15,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
   const postUrl = location.href;
 
-  let pre_type = "";
-  if (previous && previous.frontmatter.postType === "project") {
-    pre_type = "portfolio";
-  } else {
-    pre_type = "article";
-  }
-
-  let next_type = "";
-  if (next && next.frontmatter.postType === "project") {
-    next_type = "portfolio";
-  } else {
-    next_type = "article";
-  }
+  let type = "article";
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -65,14 +53,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <ul>
           <li>
             {previous && (
-              <Link to={`/${pre_type}${previous.fields.slug}`} rel="prev">
+              <Link to={`/${type}${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={`/${next_type}${next.fields.slug}`} rel="next">
+              <Link to={`/${type}${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -99,7 +87,6 @@ query BlogPostBySlug($slug: String!) {
       title
       date(formatString: "MMMM DD, YYYY")
       description
-      website
       categories
       thumbnail_attr
       thumbnail {

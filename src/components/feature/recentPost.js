@@ -29,9 +29,6 @@ const RecentPost = () => {
         {edges.map( ({node: post}) => {
             const {frontmatter: contents} = post;
             let folder = "article";
-            if (contents.postType === "project") {
-                folder = "portfolio"
-            }
             return (
                 <Link key={counter++} 
                 className="side_menu_links"
