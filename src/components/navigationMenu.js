@@ -3,24 +3,31 @@ import {Link} from "gatsby";
 
 import {siteMetadata} from "../../gatsby-config";
 
+function close_nav() {
+    let navbar = document.getElementById("navbar");
+    navbar.style.left = "-100%";
+}
+
 const NavigationMenu = () => {
     const pages = siteMetadata.menuLinks;
   return (
-        <nav>
-            {pages.map(({name, link}, index) => {
-                let extra = "";
-                if (index < pages.length -1) {
-                    extra = "|";
-                }
-            return (
-                <span key={++index} >
-                <Link to={link}>
-                        {name}
-                </Link> {extra}&nbsp;
-                </span>
-            )
-            })}
+        <nav id="navbar">
+            <div id="close_nav_btn" onClick={close_nav}>X</div>
+            <div>
+                {pages.map(({name, link}, index) => {
+                return (
+                    <span key={++index} >
+                    <Link to={link}>
+                            {name}
+                    </Link>&nbsp;
+                    </span>
+                )
+                })}
+            </div>
+            
         </nav>
   )
+
+  
 }
 export default NavigationMenu;

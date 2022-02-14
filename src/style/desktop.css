@@ -1,3 +1,7 @@
+#close_nav_btn {
+    display: none;
+}
+
 .blogContainer {
     margin-left: 5%;
     max-width: 100%;

@@ -26,6 +26,10 @@ const Layout = ({ title, children }) => {
         </Link>
       </h1>
     )
+    const open_nav = () => {
+      let navbar = document.getElementById("navbar");
+      navbar.removeAttribute("style")
+    }
   return (
     <div className="blogContainer">
       <div>
@@ -35,7 +39,15 @@ const Layout = ({ title, children }) => {
         </header>
       </div>
       <NavigationMenu/>
-      <hr style={{
+      <div id="nav_bg">
+        <div id="nav-trigger" onClick={open_nav}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      
+      <hr id="content_divider" style={{
         marginBottom: "5%",
       }}/>
       <div id="container">
@@ -54,7 +66,7 @@ const Layout = ({ title, children }) => {
       </div>
       <Footer/>
       <Helmet>
-        <script src={withPrefix('navigationMenu.js')} type="text/javascript" />
+        <script src={withPrefix('scripts.js')} type="text/javascript" />
       </Helmet>
     </div>
   )
