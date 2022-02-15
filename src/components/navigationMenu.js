@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "gatsby";
 
 import {siteMetadata} from "../../gatsby-config";
+import SocialMedia from "./feature/socialMedia";
 
 function close_nav() {
     let navbar = document.getElementById("navbar");
@@ -24,7 +25,7 @@ const NavigationMenu = () => {
                 )
                 })}
             </div>
-            
+            <SocialMedia/>
         </nav>
   )
 

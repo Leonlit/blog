@@ -18,6 +18,7 @@
     }
 
     #navbar {
+        display: block;
         position: fixed;
         top:0;
         left:0;
@@ -69,6 +70,13 @@
         width: 35px;
         margin-top: 5px;
         background-color: #747474;
+    }
+
+    #navbar div:nth-child(3){
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
     }
 
     .blogContainer header{

@@ -67,6 +67,18 @@ nav a:hover  {
     display: none;
 }
 
+#navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+#navbar div:nth-child(2){
+    flex: 0 0 80%;
+}
+#navbar div:nth-child(3){
+    flex: 0 0 20%;
+}
+
 #container {
     width:100%;
     margin-bottom:5%;

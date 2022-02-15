@@ -33,7 +33,7 @@ module.exports = {
         link: "/"
       },
       {
-        name: "About Me",
+        name: "About",
         link: "/about"
       },
     ],
