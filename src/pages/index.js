@@ -35,7 +35,6 @@ const Index = ({ location }) => {
           )
         })}
       </div>
-      <PageNavigation number_of_page={3} currentPage={1} />
     </Layout>
   )
 }

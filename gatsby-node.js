@@ -106,7 +106,8 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           currPage: x,
           skipPage: (x - 1) * 10,
-          maxPage: page
+          maxPage: page,
+          directory: "more"
         },
       })
     }
