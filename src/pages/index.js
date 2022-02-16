@@ -4,6 +4,7 @@ import {graphql, useStaticQuery} from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PostCard from "../components/postCard";
+import PageNavigation from "../components/pageNavigation";
 
 const Index = ({ location }) => {
   const blogQuery = useStaticQuery(
@@ -14,7 +15,7 @@ const Index = ({ location }) => {
         }
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          limit: 10
+          limit: 5
         ) {
           ...PostDetails
         }
@@ -34,6 +35,7 @@ const Index = ({ location }) => {
           )
         })}
       </div>
+      <PageNavigation number_of_page={3} currentPage={1} />
     </Layout>
   )
 }

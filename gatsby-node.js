@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const categoryPage = path.resolve(`./src/templates/category-page.js`);
   const archivePage = path.resolve("./src/templates/archive-page.js");
+  const morePage = path.resolve("./src/templates/more-page.js");
   const blog = await graphql(
     `
       {
@@ -31,6 +32,9 @@ exports.createPages = async ({ graphql, actions }) => {
           group(field: frontmatter___categories) {
             fieldValue
           }
+        }
+        totalPosts: allMarkdownRemark {
+          totalCount
         }
       }
     `
@@ -90,6 +94,25 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const postAvailable = blog.data.totalPosts.totalCount;
+  if (postAvailable > 10) {
+    // creating page for every pages for posts
+    const page = Math.ceil(postAvailable / 10);
+    for (let x = 1; x <= page; x++) {
+      createPage({
+        path: `/more/${x}`,
+        component: morePage,
+        context: {
+          currPage: x,
+          skipPage: (x - 1) * 10,
+          maxPage: page
+        },
+      })
+    }
+  }
+
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
