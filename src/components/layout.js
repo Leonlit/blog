@@ -9,6 +9,7 @@ import "../style/mobile.css";
 import RecentPost from "./feature/recentPost";
 import Archive from "./feature/archive";
 import Tags from "./feature/tags";
+import ScrollToTop from "./feature/scrollToTop";
 import NavigationMenu from "./navigationMenu";
 import Footer from "./footer";
 
@@ -28,8 +29,9 @@ const Layout = ({ title, children }) => {
     )
     const open_nav = () => {
       let navbar = document.getElementById("navbar");
-      navbar.removeAttribute("style")
+      navbar.style.left = "0";
     }
+
   return (
     <div className="blogContainer">
       <div>
@@ -65,6 +67,7 @@ const Layout = ({ title, children }) => {
         </aside>
       </div>
       <Footer/>
+      <ScrollToTop/>
       <Helmet>
         <script src={withPrefix('scripts.js')} type="text/javascript" />
       </Helmet>
