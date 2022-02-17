@@ -3,7 +3,8 @@
 [x] Add social media to nav bar
 [x] Add hover effect on post title link
 [x] Add scroll to top button
-[] Add more pages for categories and archive page
+[x] Add more pages for categories and archive page
+[] Fix the title for the show more page
 [] Configure github action to auto build and deploy the website when a new commit push is detected. 
 [] Refactor codes
 

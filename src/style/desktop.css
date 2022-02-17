@@ -349,6 +349,41 @@ footer {
     text-align: center;
 }
 
+#page_nav_menu {
+    margin-top: 5%;
+}
+
+#page_nav_menu a {
+    border: 1px solid grey;
+    padding: 6px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 1.5em;
+}
+
+#page_nav_menu a:hover {
+    box-shadow: 0px 1px 5px grey;
+}
+
+#page_nav_menu .currentPage {
+    background-color: rgb(231, 231, 231);
+}
+
+#show_more a {
+    border: 1px solid grey;
+    padding: 6px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 1.2em;
+    float: right;
+}
+
+#show_more a:hover {
+    box-shadow: 0px 1px 5px grey;
+}
+
 @media only screen and (max-width: 1100px) {
     main {
         width: 55%;

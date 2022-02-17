@@ -111,6 +111,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: categoryPage,
         context: {
           category: item.fieldValue,
+          haveMorePage: catePageAvailable > 10
         },
       });
     });
@@ -128,15 +129,16 @@ exports.createPages = async ({ graphql, actions }) => {
   });
   console.log(archiveGroups);
   Object.keys(archiveGroups).forEach((item) => {
+    const archievePageAvailable = archiveGroups[item];
     let directory = item.split(",");
     createPage({
       path: `/archive/${directory[1]}/${directory[0]}`,
       component: archivePage,
       context: {
+        haveMorePage: archievePageAvailable > 10,
         archive: item,
       },
     });
-    const archievePageAvailable = archiveGroups[item];
       if (archievePageAvailable > 10) {
         // creating page for every pages for categories if its more
         const page = Math.ceil(archievePageAvailable / 10);

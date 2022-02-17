@@ -13,8 +13,9 @@ const PageNavigation = ({ number_of_page, thisPage, directory}) => {
             {
                 elements.map(page => {
                     let link = `${directory}${page}`;
+                    let style = page == thisPage ? "currentPage" : "";
                     return (
-                        <div><Link to={link}>test</Link></div>
+                        <Link className={style} to={link}>{page}</Link>
                     )
                 })
             }

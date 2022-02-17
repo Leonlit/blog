@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql} from "gatsby";
+import {graphql, Link} from "gatsby";
 
 import PostCard from "../components/postCard";
 import Layout from "../components/layout";
@@ -10,7 +10,7 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
 
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  const {category} = pageContext;
+  const {category, haveMorePage} = pageContext;
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
@@ -20,6 +20,7 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
             <PostCard key={node.id} node={node} locationPlaceholder="../../" />
           )
         })}
+        {haveMorePage === true && <div id="show_more"><Link to="more/1">more</Link></div>}
       </div>
     </Layout>
   )
