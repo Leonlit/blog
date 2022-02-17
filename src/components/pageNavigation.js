@@ -12,8 +12,7 @@ const PageNavigation = ({ number_of_page, thisPage, directory}) => {
         <div id="page_nav_menu">
             {
                 elements.map(page => {
-                    console.log(page)
-                    let link = `/${directory}/${page}`;
+                    let link = `${directory}${page}`;
                     return (
                         <div><Link to={link}>test</Link></div>
                     )

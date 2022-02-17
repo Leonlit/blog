@@ -33,6 +33,7 @@ export const categoryTemplate = graphql`
       ...SiteInformations
     }
     allMarkdownRemark(
+      limit: 10
       filter: {frontmatter: {categories: {in: [$category]}}}
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

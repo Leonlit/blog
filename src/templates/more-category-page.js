@@ -6,7 +6,7 @@ import SEO from "../components/seo";
 import PostCard from "../components/postCard";
 import PageNavigation from "../components/pageNavigation";
 
-const MorePages = ({ data, pageContext, location }) => {
+const MoreCategoriesPages = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMarkdownRemark.edges;
   let title = `${pageContext.directory}`;
@@ -27,14 +27,15 @@ const MorePages = ({ data, pageContext, location }) => {
   );
 };
 
-export default MorePages;
+export default MoreCategoriesPages;
 
-export const blogQuery = graphql`
-  query pages($skipPage: Int!) {
+export const categoryTemplateMore = graphql`
+  query BlogPostByCategoryMore($category: String!, $skipPage: Int!) {
     site {
       ...SiteInformations
     }
     allMarkdownRemark(
+      filter: { frontmatter: { categories: { in: [$category] } } }
       sort: { fields: [frontmatter___date], order: DESC }
       skip: $skipPage
       limit: 10

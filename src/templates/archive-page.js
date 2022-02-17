@@ -32,6 +32,7 @@ export const ArchiveTemplate = graphql`
       ...SiteInformations
     }
     allMarkdownRemark(
+      limit: 10
       filter: {frontmatter: {dateToken: {eq: $archive}}}
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
