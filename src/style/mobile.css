@@ -19,7 +19,7 @@
         left: 0px;
         margin: 0px;
         padding: 0px;
-        z-index: 2;
+        z-index: 4;
     }
 
     #navbar {
@@ -62,6 +62,7 @@
         width: 100%;
         background-color: #ececec;
         box-shadow: 0px 1px 3px grey;
+        z-index: 3;
     }
 
     #nav-trigger {
