@@ -4,7 +4,10 @@
 [x] Add hover effect on post title link
 [x] Add scroll to top button
 [x] Add more pages for categories and archive page
-[] Fix the title for the show more page
+[x] Fix the title for the show more page
+[] Create new logo for the blog or just use the profile logo
+[] Create dark mode for the blog (not so important)
+[] Create a search functionality
 [] Configure github action to auto build and deploy the website when a new commit push is detected. 
 [] Refactor codes
 

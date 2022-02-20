@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql, useStaticQuery} from "gatsby";
+import {graphql, useStaticQuery, Link} from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -18,6 +18,7 @@ const Index = ({ location }) => {
           limit: 5
         ) {
           ...PostDetails
+          totalCount
         }
       }
     `
@@ -34,6 +35,7 @@ const Index = ({ location }) => {
             <PostCard node={node} key={node.id}/>
           )
         })}
+        {blogQuery.allMarkdownRemark.totalCount > 10 && <div id="show_more"><Link to="article/more/1">more</Link></div>}
       </div>
     </Layout>
   )

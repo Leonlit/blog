@@ -69,15 +69,16 @@ exports.createPages = async ({ graphql, actions }) => {
   if (postAvailable > 10) {
     // creating page for every pages for posts
     const page = Math.ceil(postAvailable / 10);
+    let dirPath = "/article/more/";
     for (let x = 1; x <= page; x++) {
       createPage({
-        path: `/article/more/${x}`,
+        path: `${dirPath}${x}`,
         component: morePage,
         context: {
           currPage: x,
           skipPage: (x - 1) * 10,
           maxPage: page,
-          directory: "more",
+          directory: dirPath,
         },
       });
     }
