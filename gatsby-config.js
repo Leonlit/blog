@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/blog",
   siteMetadata: {
-    title: `A Somewhat Minimally Designed Blog`,
+    title: `Leonlit`,
     logo: "public/blog-ico.png",
     author: {
       name: `Leon Lit`,
@@ -70,8 +70,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `A Somewhat Minimally Designed Blog`,
-        short_name: `Minimally designed blog template`,
+        name: `Leonlit's blog`,
+        short_name: `Leonlit`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
