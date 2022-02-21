@@ -86,6 +86,10 @@
         width: 100%;
     }
 
+    .blogContainer {
+        margin-top: 0;
+    }
+
     .blogContainer header{
         margin-top: 5%;
         margin-bottom: 50px;

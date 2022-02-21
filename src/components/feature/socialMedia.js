@@ -1,4 +1,5 @@
 import {FaTwitter, FaGithub, FaLinkedin} from "react-icons/fa";
+import {CgWebsite} from "react-icons/cg";
 import {IconContext} from "react-icons"
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
@@ -22,6 +23,10 @@ const SocialMedia = () => {
                     url
                     name
                   }
+                  portfolio {
+                    url
+                    name
+                  }
                 }
               }
             }
@@ -29,7 +34,7 @@ const SocialMedia = () => {
         `
       )
 
-    const {twitter, github, linkedIn} = site.siteMetadata.social;
+    const {twitter, github, linkedIn, portfolio} = site.siteMetadata.social;
     return (
         <div>
             <IconContext.Provider 
@@ -66,6 +71,18 @@ const SocialMedia = () => {
                 className="socialMedias"
             >
                 <FaLinkedin/>
+            </a>
+            </IconContext.Provider>
+            <IconContext.Provider 
+            key="website"
+            value={{ style: {fontSize: '40px', color: "black"}}}>
+            <a 
+                href={portfolio.url} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="socialMedias"
+            >
+                <CgWebsite/>
             </a>
             </IconContext.Provider>
         </div>
