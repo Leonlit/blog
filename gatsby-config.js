@@ -3,6 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `Leonlit`,
     logo: "public/blog-ico.png",
+    tags: "leonlit, minimal blog, cyber security, programming, web-development, blog, software development, app development",
     author: {
       name: `Leon Lit`,
       summary: `I'm Creating some fun side project.`,
