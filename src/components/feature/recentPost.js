@@ -12,7 +12,6 @@ const RecentPost = () => {
                     }
                     frontmatter {
                         title
-                        postType
                     }
                 }
             }

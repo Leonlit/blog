@@ -3,7 +3,6 @@ title: Just testing the positioning and navigation between elements
 date: "2020-05-29T22:40:32.169Z"
 dateToken: "May,2020"
 description: Another dummy post for testing the element's positioning
-postType: "project"
 categories: ["portfolio", "test-post"]
 website: ["github","github.com/Leonlit/A_Somewhat_Minimally_Designed_Blog"]
 thumbnail: "./demo_image.png"

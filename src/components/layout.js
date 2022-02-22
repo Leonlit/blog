@@ -96,7 +96,6 @@ export const globalFragmentQuery = graphql`
           date (formatString: "MMMM DD, YYYY")
           title
           description
-          postType
           categories
           thumbnail_attr
           thumbnail {

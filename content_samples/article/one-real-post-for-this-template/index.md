@@ -3,7 +3,6 @@ title: "Introduction to the 'A somewhat minimally designed blog' template"
 date: "2020-09-06T14:47:32.169Z"
 dateToken: "Sep,2020"
 description: Another post for testing post
-postType: "blog"
 categories: ["documentation", "news", "template-feature"]
 thumbnail: "./intro_banner.png"
 thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]

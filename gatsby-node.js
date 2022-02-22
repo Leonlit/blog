@@ -23,7 +23,6 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
-                postType
                 categories
                 date(formatString: "MMM,YYYY")
               }
