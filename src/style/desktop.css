@@ -126,8 +126,12 @@ hr {
 
 main {
     margin-left:5%;
-    width: 65%;
-    min-width: 65%;
+    width: 55%;
+    min-width: 55%;
+}
+
+main img {
+    box-shadow: 0px 1px 3px grey !important;
 }
 
 aside {
@@ -221,6 +225,10 @@ article section {
 
 p {
     text-align: justify ;
+    line-height: 1.8;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .socialMedias{
@@ -298,6 +306,15 @@ p {
     max-width:100%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
+}
+
+em {
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 15px !important;
+    color: rgb(29, 29, 29);
 }
 
 .post-navigation ul {

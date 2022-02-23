@@ -123,8 +123,8 @@ categories: ${JSON.stringify(categoriesArr)}
 thumbnail: "${thumbnail}"
 thumbnail_attr: ${JSON.stringify(attr)}
 ---
-    
-    `;
+
+`;
 
   fs.writeFile(path.resolve(postDirName, "index.md"), content, function (err) {
     if (err) {

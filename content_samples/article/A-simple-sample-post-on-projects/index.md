@@ -5,8 +5,8 @@ dateToken: "May,2020"
 description: Feature for the blog template
 categories: ["portfolio", "test-post"]
 website: ["github","github.com/Leonlit/A_Somewhat_Minimally_Designed_Blog"]
-thumbnail: "./illust.jpg"
-thumbnail_attr: ["Designed by rawpixel.com", "https://www.freepik.com/"]
+thumbnail: "./leon.png"
+thumbnail_attr: ["Designed by leonlit", "https://github.com/Leonlit"]
 ---
 ### Feature for this project (WIP)
  - Main navigation bar
