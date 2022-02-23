@@ -2,7 +2,7 @@ import React from "react"
 import {graphql, Link} from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import PostCard from "../components/postCard";
 
 const ArchivePageTemplate = ({ data, pageContext, location }) => {
@@ -11,7 +11,7 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
   const {archive, haveMorePage} = pageContext;
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
+      <Seo title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
       <div>
         {posts.map(({ node }) => {
           let folder = "article";         

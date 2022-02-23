@@ -4,9 +4,9 @@ import Img from "gatsby-image";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import ShareToMedia from "../components/feature/shareToMedia";
-import Tags from "../components/feature/tags";
+import BlogPostTags from "../components/feature/blogPostTags";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const {excerpt, html, frontmatter} = data.markdownRemark
@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   let type = "article";
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
+      <Seo
         title={title}
         description={ description || excerpt}
         url={postUrl}
@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h2>{title}</h2>
           <p className="postDate">{date}</p>
         </header>
-        {categories && <Tags tags={categories}/>}
+        {categories && <BlogPostTags blogTags={categories}/>}
         <section dangerouslySetInnerHTML={{ __html: html }} />
         <hr/>
         <ShareToMedia 
@@ -81,7 +81,6 @@ query BlogPostBySlug($slug: String!) {
     }
   }
   markdownRemark(fields: { slug: { eq: $slug } }) {
-    excerpt(pruneLength: 160)
     html
     frontmatter {
       title

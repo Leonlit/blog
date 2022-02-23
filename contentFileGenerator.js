@@ -120,7 +120,7 @@ date: "${datetime}"
 dateToken: "${dateToken}"
 description: "${description.replace(/"/g, '\\"')}"
 categories: ${JSON.stringify(categoriesArr)}
-thumbnail: ${thumbnail}
+thumbnail: "${thumbnail}"
 thumbnail_attr: ${JSON.stringify(attr)}
 ---
     

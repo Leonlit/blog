@@ -2,9 +2,8 @@ import React from "react";
 import {graphql, useStaticQuery, Link} from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import PostCard from "../components/postCard";
-import PageNavigation from "../components/pageNavigation";
 
 const Index = ({ location }) => {
   const blogQuery = useStaticQuery(
@@ -28,7 +27,7 @@ const Index = ({ location }) => {
   const posts = blogQuery.allMarkdownRemark.edges
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home" description="Home page for the template site"/>
+      <Seo title="Home" description="Home page for the template site"/>
       <div>
         {posts.map(({ node }) => {
           return (

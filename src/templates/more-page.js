@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import PostCard from "../components/postCard";
 import PageNavigation from "../components/pageNavigation";
 
@@ -12,7 +12,7 @@ const MorePages = ({ data, pageContext, location }) => {
   let title = `More posts - ${pageContext.currPage}`;
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={title} description="More pages for the Contents." />
+      <Seo title={title} description="More pages for the Contents." />
       <PageNavigation
         number_of_page={pageContext.maxPage}
         thisPage={pageContext.currPage}

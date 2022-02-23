@@ -1,7 +1,6 @@
 import React from "react"
 import {Link} from "gatsby"
-import Tags from "../components/feature/tags";
-import Img from "gatsby-image";
+import BlogPostTags from "../components/feature/blogPostTags";
 
 const PostCard = ({node}) => {
     const slug = node.fields.slug;
@@ -19,7 +18,7 @@ const PostCard = ({node}) => {
         </h3>
         <small>{node.frontmatter.date}</small>
         </header>
-        {tags && <Tags tags={tags}/>}
+        {tags && <BlogPostTags blogTags={tags}/>}
         <hr/>
         <section>
         <p

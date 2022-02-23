@@ -3,7 +3,7 @@ import {graphql, Link} from "gatsby";
 
 import PostCard from "../components/postCard";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 
 
 const CategoryPageTemplate = ({ data, pageContext, location }) => {
@@ -13,7 +13,7 @@ const CategoryPageTemplate = ({ data, pageContext, location }) => {
   const {category, haveMorePage} = pageContext;
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
+      <Seo title={`Blog post for #${category}`} description={`ALl post for #${category}`}/>
       <div>
         {posts.map(({ node }) => {
           return (
