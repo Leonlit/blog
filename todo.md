@@ -8,6 +8,5 @@
 [x] Create new logo for the blog or just use the profile logo
 [x] Rewrite about me page
 [x] Add portfolio links to header
-[] Configure github action to auto build and deploy the website when a new commit push is detected. 
 [] Refactor codes
 
