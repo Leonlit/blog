@@ -6,7 +6,7 @@
 [x] Add more pages for categories and archive page
 [x] Fix the title for the show more page
 [x] Create new logo for the blog or just use the profile logo
-[] Rewrite about me page
+[x] Rewrite about me page
 [x] Add portfolio links to header
 [] Configure github action to auto build and deploy the website when a new commit push is detected. 
 [] Refactor codes
