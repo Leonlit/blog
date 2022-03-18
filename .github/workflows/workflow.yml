@@ -29,11 +29,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14.x'
+    - run: cd temp
     - run: npm i
     - run: npm install -g gatsby-cli@4.7.0
     - run: npm run build --if-present
-    - run: mv temp/public/* ./
-    - run: rm -rf temp
+    - run: mv public/* ../
+    - run: rm -rf ../temp
 
     - name: Commit files for change # commit
       if: ${{ success() }}
