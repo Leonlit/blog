@@ -74,10 +74,10 @@ nav a:hover  {
 }
 
 #navbar div:nth-child(2){
-    flex: 0 0 80%;
+    flex: 0 0 70%;
 }
 #navbar div:nth-child(3){
-    flex: 0 0 20%;
+    flex: 0 0 30%;
 }
 
 #container {
@@ -419,10 +419,10 @@ footer {
     }
 
     #navbar div:nth-child(3){
-        flex: 0 0 30%;
+        flex: 0 0 40%;
     }
 
-    #navbar div:nth-child(2) {
+    #navbar div:nth-child(2){
         flex: 0 0 60%;
     }
 }
