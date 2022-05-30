@@ -219,16 +219,16 @@ article header p{
     margin-bottom: 5%;
 }
 
-article section {
-    margin-bottom: 50px;
-}
-
 p {
-    text-align: justify ;
     line-height: 1.8;
     font-weight: 500;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+.blogContainer #container .card section p {
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .socialMedias{
@@ -299,7 +299,7 @@ p {
 }
 
 .blog-card h3{
-    margin-top: 2.1rem;
+    margin-top: 1.1rem;
 }
 
 .postThumbnail {
