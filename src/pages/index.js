@@ -27,7 +27,7 @@ const Index = ({ location }) => {
   const posts = blogQuery.allMarkdownRemark.edges
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Home" description="Home page for the template site"/>
+      <Seo title="Home" description="Leonlit's blog"/>
       <div>
         {posts.map(({ node }) => {
           return (

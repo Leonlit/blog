@@ -11,7 +11,7 @@ const ArchivePageTemplate = ({ data, pageContext, location }) => {
   const {archive, haveMorePage} = pageContext;
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title={`Post posted in ${archive}`} description={`ALl the blog post posted on ${archive}`}/>
+      <Seo title={`Post posted in ${archive}`} description={`All the blog post posted on ${archive}`}/>
       <div>
         {posts.map(({ node }) => {
           let folder = "article";         

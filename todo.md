@@ -9,4 +9,7 @@
 [x] Rewrite about me page
 [x] Add portfolio links to header
 [] Refactor codes
-
+[] Hide/show sidebar
+    [] Make content center after hide and back to original if sidebar is shown
+[] fix social media shadows
+[] fix social media sharing icons position & metadata
